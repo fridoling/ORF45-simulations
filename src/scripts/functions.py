@@ -32,4 +32,11 @@ def subtract_bg(data, bg=0, norm=True, renormalize=True):
                 else:
                     data_out[net][var][t] = (tup[0]-bg, tup[1])
     return data_out   
+
+def order_params(params, m):
+   params_ordered = KeyedList()
+   for p in m.params.keys():
+       val = params.getByKey(p)
+       params_ordered.setByKey(p, val)
+   return params_ordered
  
