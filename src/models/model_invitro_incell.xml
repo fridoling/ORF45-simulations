@@ -1,0 +1,4107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <annotation>
+    <SimBiology xmlns="http://www.mathworks.com">
+      <Version Major="5" Minor="1" Point="0"/>
+    </SimBiology>
+  </annotation>
+  <model id="model_invitro_incell" name="model_invitro_incell">
+    <listOfCompartments>
+      <compartment id="unnamed" name="unnamed" size="1"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="E" name="E" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
+      <species id="R" name="R" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
+      <species id="O" name="O" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
+      <species id="ER" name="ER" compartment="unnamed" initialAmount="0"/>
+      <species id="EO" name="EO" compartment="unnamed" initialAmount="0"/>
+      <species id="OR" name="OR" compartment="unnamed" initialAmount="0"/>
+      <species id="pR" name="pR" compartment="unnamed" initialAmount="0"/>
+      <species id="EpR" name="EpR" compartment="unnamed" initialAmount="0"/>
+      <species id="OpR" name="OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="pE" name="pE" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO" name="pEO" compartment="unnamed" initialAmount="0"/>
+      <species id="pER" name="pER" compartment="unnamed" initialAmount="0"/>
+      <species id="pEpR" name="pEpR" compartment="unnamed" initialAmount="0"/>
+      <species id="EO_OR" name="EO_OR" compartment="unnamed" initialAmount="0"/>
+      <species id="EO_ER" name="EO_ER" compartment="unnamed" initialAmount="0"/>
+      <species id="ER_OR" name="ER_OR" compartment="unnamed" initialAmount="0"/>
+      <species id="EO_OpR" name="EO_OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="EO_EpR" name="EO_EpR" compartment="unnamed" initialAmount="0"/>
+      <species id="EpR_OpR" name="EpR_OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO_OR" name="pEO_OR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO_pER" name="pEO_pER" compartment="unnamed" initialAmount="0"/>
+      <species id="pER_OR" name="pER_OR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO_OpR" name="pEO_OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO_pEpR" name="pEO_pEpR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEpR_OpR" name="pEpR_OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="EO_ER_OR" name="EO_ER_OR" compartment="unnamed" initialAmount="0"/>
+      <species id="EO_EpR_OpR" name="EO_EpR_OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO_pER_OR" name="pEO_pER_OR" compartment="unnamed" initialAmount="0"/>
+      <species id="pEO_pEpR_OpR" name="pEO_pEpR_OpR" compartment="unnamed" initialAmount="0"/>
+      <species id="pK" name="pK" compartment="unnamed" initialAmount="0.1" boundaryCondition="true"/>
+      <species id="K" name="K" compartment="unnamed" initialAmount="0"/>
+      <species id="EpK" name="EpK" compartment="unnamed" initialAmount="0"/>
+      <species id="EK" name="EK" compartment="unnamed" initialAmount="0"/>
+      <species id="pEpK" name="pEpK" compartment="unnamed" initialAmount="0"/>
+      <species id="pEK" name="pEK" compartment="unnamed" initialAmount="0"/>
+      <species id="pEP" name="pEP" compartment="unnamed" initialAmount="0"/>
+      <species id="EP" name="EP" compartment="unnamed" initialAmount="0"/>
+      <species id="P" name="P" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
+      <species id="P2" name="P2" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
+      <species id="pRP2" name="pRP2" compartment="unnamed" initialAmount="0"/>
+      <species id="P2tot" name="P2tot" compartment="unnamed" initialAmount="1"/>
+      <species id="Ptot" name="Ptot" compartment="unnamed" initialAmount="1"/>
+      <species id="Ktot" name="Ktot" compartment="unnamed" initialAmount="1"/>
+      <species id="Otot" name="Otot" compartment="unnamed" initialAmount="1"/>
+      <species id="Rtot" name="Rtot" compartment="unnamed" initialAmount="2"/>
+      <species id="Etot" name="Etot" compartment="unnamed" initialAmount="0.7"/>
+      <species id="pRtot" name="pRtot" compartment="unnamed" initialAmount="0"/>
+      <species id="pEtot" name="pEtot" compartment="unnamed" initialAmount="0"/>
+      <species id="RP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="ERP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pERP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EO_ERP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEO_pERP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EpRP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEpRP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EO_EpRP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEO_pEpRP2" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEO_ER" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EPO" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEPO" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EPO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEPO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EPO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEPO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EpKO" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEpKO" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EpKO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEpKO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EpKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEpKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EKO" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEKO" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EKO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEKO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="EKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="pEKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="kon_ER" name="kon_ER" value="1"/>
+      <parameter id="kon_ER_factor" name="kon_ER_factor" value="1"/>
+      <parameter id="koff_ER" name="koff_ER" value="1" constant="false"/>
+      <parameter id="koff_ER_d" name="koff_ER_d" value="1" constant="false"/>
+      <parameter id="koff_EpR" name="koff_EpR" value="1" constant="false"/>
+      <parameter id="koff_EpR_d" name="koff_EpR_d" value="1" constant="false"/>
+      <parameter id="koff_OR" name="koff_OR" value="1" constant="false"/>
+      <parameter id="koff_OR_d" name="koff_OR_d" value="1" constant="false"/>
+      <parameter id="koff_OpR" name="koff_OpR" value="1" constant="false"/>
+      <parameter id="koff_OpR_d" name="koff_OpR_d" value="1" constant="false"/>
+      <parameter id="kon_OR" name="kon_OR" value="1"/>
+      <parameter id="kon_OR_factor" name="kon_OR_factor" value="1"/>
+      <parameter id="kon_EO" name="kon_EO" value="1"/>
+      <parameter id="koff_EO" name="koff_EO" value="1" constant="false"/>
+      <parameter id="koff_EO_d" name="koff_EO_d" value="1" constant="false"/>
+      <parameter id="kon_EO_factor" name="kon_EO_factor" value="1"/>
+      <parameter id="koff_pEO" name="koff_pEO" value="1" constant="false"/>
+      <parameter id="koff_pEO_d" name="koff_pEO_d" value="1" constant="false"/>
+      <parameter id="kon_EO_a" name="kon_EO_a" value="1" constant="false"/>
+      <parameter id="kon_OR_a" name="kon_OR_a" value="1" constant="false"/>
+      <parameter id="kon_ER_a" name="kon_ER_a" value="1" constant="false"/>
+      <parameter id="KD_EO" name="KD_EO" value="1" constant="false"/>
+      <parameter id="KD_ER" name="KD_ER" value="1"/>
+      <parameter id="KD_EpR" name="KD_EpR" value="1" constant="false"/>
+      <parameter id="KD_OR" name="KD_OR" value="1"/>
+      <parameter id="KD_OpR" name="KD_OpR" value="1"/>
+      <parameter id="KD_pEO" name="KD_pEO" value="1"/>
+      <parameter id="KD_EK" name="KD_EK" value="1"/>
+      <parameter id="KD_EP" name="KD_EP" value="1"/>
+      <parameter id="KD_RP2" name="KD_RP2" value="1"/>
+      <parameter id="pE_factor" name="pE_factor" value="100"/>
+      <parameter id="kp_R" name="kp_R" value="1"/>
+      <parameter id="kp_R_on" name="kp_R_on" value="1"/>
+      <parameter id="kon_EK" name="kon_EK" value="1"/>
+      <parameter id="koff_EK" name="koff_EK" value="1" constant="false"/>
+      <parameter id="kp_E" name="kp_E" value="1"/>
+      <parameter id="kp_E_on" name="kp_E_on" value="1"/>
+      <parameter id="kon_EP" name="kon_EP" value="1"/>
+      <parameter id="koff_EP" name="koff_EP" value="1" constant="false"/>
+      <parameter id="kdp_E" name="kdp_E" value="1"/>
+      <parameter id="kdp_E_on" name="kdp_E_on" value="1"/>
+      <parameter id="kon_RP2" name="kon_RP2" value="1"/>
+      <parameter id="koff_RP2" name="koff_RP2" value="1" constant="false"/>
+      <parameter id="kdp_R" name="kdp_R" value="1"/>
+      <parameter id="kp_K_bg" name="kp_K_bg" value="1"/>
+      <parameter id="kp_K_egf" name="kp_K_egf" value="1"/>
+      <parameter id="kp_K_on" name="kp_K_on" value="1"/>
+      <parameter id="kdp_K" name="kdp_K" value="1"/>
+      <parameter id="a" name="a" value="1"/>
+      <parameter id="d" name="d" value="1"/>
+      <parameter id="Rtot_factor" name="Rtot_factor" value="1"/>
+      <parameter id="Otot_factor" name="Otot_factor" value="1"/>
+      <parameter id="KD_EpR_factor" name="KD_EpR_factor" value="5"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="KD_EO">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_pEO </ci>
+            <ci> pE_factor </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_EO">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_EO </ci>
+            <ci> kon_EO </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_EO_d">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_EO </ci>
+            <ci> kon_EO </ci>
+            <ci> d </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="KD_EpR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_ER </ci>
+            <ci> KD_EpR_factor </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_ER">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_ER </ci>
+            <ci> kon_ER </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_ER_d">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_ER </ci>
+            <ci> kon_ER </ci>
+            <ci> d </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_EpR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_EpR </ci>
+            <ci> kon_ER </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_EpR_d">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_EpR </ci>
+            <ci> kon_ER </ci>
+            <ci> d </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_OR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_OR </ci>
+            <ci> kon_OR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_OR_d">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_OR </ci>
+            <ci> kon_OR </ci>
+            <ci> d </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_OpR">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_OpR </ci>
+            <ci> kon_OR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_OpR_d">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_OpR </ci>
+            <ci> kon_OR </ci>
+            <ci> d </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_pEO">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_pEO </ci>
+            <ci> kon_EO </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_pEO_d">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_pEO </ci>
+            <ci> kon_EO </ci>
+            <ci> d </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_EK">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_EK </ci>
+            <ci> kon_EK </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_EP">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_EP </ci>
+            <ci> kon_EP </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="koff_RP2">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> KD_RP2 </ci>
+            <ci> kon_RP2 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="P">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> Ptot </ci>
+            <apply>
+              <plus/>
+              <ci> EP </ci>
+              <ci> pEP </ci>
+              <ci> EPO_OR </ci>
+              <ci> EPO </ci>
+              <ci> pEPO </ci>
+              <ci> pEPO_OpR </ci>
+              <ci> EPO_OpR </ci>
+              <ci> pEPO_OR </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="P2">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> P2tot </ci>
+            <apply>
+              <plus/>
+              <ci> pRP2 </ci>
+              <ci> pERP2 </ci>
+              <ci> EO_ERP2 </ci>
+              <ci> pEO_pEpRP2 </ci>
+              <ci> EpRP2 </ci>
+              <ci> RP2 </ci>
+              <ci> EO_EpRP2 </ci>
+              <ci> ERP2 </ci>
+              <ci> pEpRP2 </ci>
+              <ci> pEO_pERP2 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="pK">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> Ktot </ci>
+            <apply>
+              <plus/>
+              <ci> EpK </ci>
+              <ci> pEpK </ci>
+              <ci> K </ci>
+              <ci> EK </ci>
+              <ci> pEK </ci>
+              <ci> EKO </ci>
+              <ci> EKO_OpR </ci>
+              <ci> EpKO_OR </ci>
+              <ci> pEpKO </ci>
+              <ci> EpKO </ci>
+              <ci> pEpKO_OpR </ci>
+              <ci> pEKO_OR </ci>
+              <ci> pEpKO_OR </ci>
+              <ci> EKO_OR </ci>
+              <ci> EpKO_OpR </ci>
+              <ci> pEKO_OpR </ci>
+              <ci> pEKO </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="O">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci> Otot </ci>
+              <ci> Otot_factor </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> EO </ci>
+              <ci> pEO </ci>
+              <ci> OR </ci>
+              <ci> OpR </ci>
+              <ci> EO_OR </ci>
+              <ci> pEO_OR </ci>
+              <ci> pEO_OpR </ci>
+              <ci> EO_OpR </ci>
+              <ci> EO_ER </ci>
+              <ci> pEO_pER </ci>
+              <ci> EO_EpR </ci>
+              <ci> pEO_pEpR </ci>
+              <ci> ER_OR </ci>
+              <ci> pER_OR </ci>
+              <ci> EpR_OpR </ci>
+              <ci> pEpR_OpR </ci>
+              <ci> EO_ER_OR </ci>
+              <ci> EO_EpR_OpR </ci>
+              <ci> pEO_pER_OR </ci>
+              <ci> pEO_pEpR_OpR </ci>
+              <ci> EO_ERP2 </ci>
+              <ci> pEO_pEpRP2 </ci>
+              <ci> EO_EpRP2 </ci>
+              <ci> pEO_pERP2 </ci>
+              <ci> EPO_OR </ci>
+              <ci> EPO </ci>
+              <ci> pEPO </ci>
+              <ci> pEPO_OpR </ci>
+              <ci> EPO_OpR </ci>
+              <ci> pEPO_OR </ci>
+              <ci> EKO </ci>
+              <ci> EKO_OpR </ci>
+              <ci> EpKO_OR </ci>
+              <ci> pEpKO </ci>
+              <ci> EpKO </ci>
+              <ci> pEpKO_OpR </ci>
+              <ci> pEKO_OR </ci>
+              <ci> pEpKO_OR </ci>
+              <ci> EKO_OR </ci>
+              <ci> EpKO_OpR </ci>
+              <ci> pEKO_OpR </ci>
+              <ci> pEKO </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="R">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci> Rtot </ci>
+              <ci> Rtot_factor </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> pR </ci>
+              <ci> EpR </ci>
+              <ci> pEpR </ci>
+              <ci> ER </ci>
+              <ci> pER </ci>
+              <ci> OR </ci>
+              <ci> OpR </ci>
+              <ci> EO_OR </ci>
+              <ci> pEO_OR </ci>
+              <ci> pEO_OpR </ci>
+              <ci> EO_OpR </ci>
+              <ci> EO_ER </ci>
+              <ci> pEO_pER </ci>
+              <ci> EO_EpR </ci>
+              <ci> pEO_pEpR </ci>
+              <ci> ER_OR </ci>
+              <ci> pER_OR </ci>
+              <ci> EpR_OpR </ci>
+              <ci> pEpR_OpR </ci>
+              <ci> EO_ER_OR </ci>
+              <ci> EO_EpR_OpR </ci>
+              <ci> pEO_pER_OR </ci>
+              <ci> pEO_pEpR_OpR </ci>
+              <ci> pRP2 </ci>
+              <ci> pERP2 </ci>
+              <ci> EO_ERP2 </ci>
+              <ci> pEO_pEpRP2 </ci>
+              <ci> EpRP2 </ci>
+              <ci> RP2 </ci>
+              <ci> EO_EpRP2 </ci>
+              <ci> ERP2 </ci>
+              <ci> pEpRP2 </ci>
+              <ci> pEO_pERP2 </ci>
+              <ci> EPO_OR </ci>
+              <ci> pEPO_OpR </ci>
+              <ci> EPO_OpR </ci>
+              <ci> pEPO_OR </ci>
+              <ci> EKO_OpR </ci>
+              <ci> EpKO_OR </ci>
+              <ci> pEpKO_OpR </ci>
+              <ci> pEKO_OR </ci>
+              <ci> pEpKO_OR </ci>
+              <ci> EKO_OR </ci>
+              <ci> EpKO_OpR </ci>
+              <ci> pEKO_OpR </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="pRtot">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> pR </ci>
+            <ci> EpR </ci>
+            <ci> pEpR </ci>
+            <ci> OpR </ci>
+            <ci> pEO_OpR </ci>
+            <ci> EO_OpR </ci>
+            <ci> EO_EpR </ci>
+            <ci> pEO_pEpR </ci>
+            <ci> EpR_OpR </ci>
+            <ci> pEpR_OpR </ci>
+            <ci> EO_EpR_OpR </ci>
+            <ci> pEO_pEpR_OpR </ci>
+            <ci> pRP2 </ci>
+            <ci> pEO_pEpRP2 </ci>
+            <ci> EpRP2 </ci>
+            <ci> EO_EpRP2 </ci>
+            <ci> pEpRP2 </ci>
+            <ci> pEPO_OpR </ci>
+            <ci> EPO_OpR </ci>
+            <ci> EKO_OpR </ci>
+            <ci> pEpKO_OpR </ci>
+            <ci> EpKO_OpR </ci>
+            <ci> pEKO_OpR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="pEtot">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> pE </ci>
+            <ci> pEpR </ci>
+            <ci> pER </ci>
+            <ci> pEO </ci>
+            <ci> pEO_OR </ci>
+            <ci> pEO_OpR </ci>
+            <ci> pEO_pER </ci>
+            <ci> pEO_pEpR </ci>
+            <ci> pER_OR </ci>
+            <ci> pEpR_OpR </ci>
+            <ci> pEO_pER_OR </ci>
+            <ci> pEO_pEpR_OpR </ci>
+            <ci> pEP </ci>
+            <ci> pEpK </ci>
+            <ci> pEK </ci>
+            <ci> pERP2 </ci>
+            <ci> pEO_pEpRP2 </ci>
+            <ci> pEpRP2 </ci>
+            <ci> pEO_pERP2 </ci>
+            <ci> pEPO </ci>
+            <ci> pEPO_OpR </ci>
+            <ci> pEPO_OR </ci>
+            <ci> pEpKO </ci>
+            <ci> pEpKO_OpR </ci>
+            <ci> pEKO_OR </ci>
+            <ci> pEpKO_OR </ci>
+            <ci> pEKO_OpR </ci>
+            <ci> pEKO </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="E">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> Etot </ci>
+            <apply>
+              <plus/>
+              <ci> pE </ci>
+              <ci> EpR </ci>
+              <ci> pEpR </ci>
+              <ci> ER </ci>
+              <ci> pER </ci>
+              <ci> EO </ci>
+              <ci> pEO </ci>
+              <ci> EO_OR </ci>
+              <ci> pEO_OR </ci>
+              <ci> pEO_OpR </ci>
+              <ci> EO_OpR </ci>
+              <ci> EO_ER </ci>
+              <ci> pEO_pER </ci>
+              <ci> EO_EpR </ci>
+              <ci> pEO_pEpR </ci>
+              <ci> ER_OR </ci>
+              <ci> pER_OR </ci>
+              <ci> EpR_OpR </ci>
+              <ci> pEpR_OpR </ci>
+              <ci> EO_ER_OR </ci>
+              <ci> EO_EpR_OpR </ci>
+              <ci> pEO_pER_OR </ci>
+              <ci> pEO_pEpR_OpR </ci>
+              <ci> EpK </ci>
+              <ci> pEpK </ci>
+              <ci> pEP </ci>
+              <ci> EP </ci>
+              <ci> EK </ci>
+              <ci> pEK </ci>
+              <ci> pERP2 </ci>
+              <ci> EO_ERP2 </ci>
+              <ci> pEO_pEpRP2 </ci>
+              <ci> EpRP2 </ci>
+              <ci> EO_EpRP2 </ci>
+              <ci> ERP2 </ci>
+              <ci> pEpRP2 </ci>
+              <ci> pEO_pERP2 </ci>
+              <ci> EPO_OR </ci>
+              <ci> EPO </ci>
+              <ci> pEPO </ci>
+              <ci> pEPO_OpR </ci>
+              <ci> EPO_OpR </ci>
+              <ci> pEPO_OR </ci>
+              <ci> EKO </ci>
+              <ci> EKO_OpR </ci>
+              <ci> EpKO_OR </ci>
+              <ci> pEpKO </ci>
+              <ci> EpKO </ci>
+              <ci> pEpKO_OpR </ci>
+              <ci> pEKO_OR </ci>
+              <ci> pEpKO_OR </ci>
+              <ci> EKO_OR </ci>
+              <ci> EpKO_OpR </ci>
+              <ci> pEKO_OpR </ci>
+              <ci> pEKO </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="kon_EO_a">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> a </ci>
+            <ci> kon_EO </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="kon_OR_a">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> a </ci>
+            <ci> kon_OR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="kon_ER_a">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> a </ci>
+            <ci> kon_ER </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction id="vER" name="vER" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ER"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> E </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> ER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpR" name="vEpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> E </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> EpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpER" name="vpER" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pER"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> pE </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> pER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpR" name="vpEpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> pE </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> pEpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_EO" name="vEO_ER_EO" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ER"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> EO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> EO_ER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vER_OR_OR" name="vER_OR_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> E </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> ER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_EpR_EO" name="vEO_EpR_EO" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> EO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> EO_EpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpR_OpR_OpR" name="vEpR_OpR_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> E </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> EpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pER_pEO" name="vpEO_pER_pEO" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pER"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> pEO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> pEO_pER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpER_OR_OR" name="vpER_OR_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> pE </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> pER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpR_OpR_OpR" name="vpEpR_OpR_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> pE </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> pEpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pEpR_pEO" name="vpEO_pEpR_pEO" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER </ci>
+                <ci> pEO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> pEO_pEpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_OR_EOor" name="vEO_ER_OR_EOor" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER_a </ci>
+                <ci> EO_OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER_d </ci>
+                <ci> EO_ER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ERo_OpR_EOOpR" name="vEO_ERo_OpR_EOOpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER_a </ci>
+                <ci> EO_OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR_d </ci>
+                <ci> EO_EpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pER_OR_pEOor" name="vpEO_pER_OR_pEOor" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER_a </ci>
+                <ci> pEO_OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER_d </ci>
+                <ci> pEO_pER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pEpR_OpR_pEOOpR" name="vpEO_pEpR_OpR_pEOOpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER_factor </ci>
+                <ci> kon_ER_a </ci>
+                <ci> pEO_OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR_d </ci>
+                <ci> pEO_pEpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO" name="vEO" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> E </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO" name="vpEO" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> pE </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OR_OR" name="vEO_OR_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> E </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_ER" name="vEO_ER_ER" fast="false">
+        <listOfReactants>
+          <speciesReference species="ER"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ER"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> ER </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO_ER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OpR_OpR" name="vEO_OpR_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> E </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OR_OR" name="vpEO_OR_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> pE </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_EpR_EpR" name="vEO_EpR_EpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpR"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> EpR </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO_EpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="pEO_pER_pER" name="pEO_pER_pER" fast="false">
+        <listOfReactants>
+          <speciesReference species="pER"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pER"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> pER </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO_pER </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OpR_OpR" name="vpEO_OpR_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> pE </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pEpR_pEpR" name="vpEO_pEpR_pEpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpR"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_factor </ci>
+                <ci> kon_EO </ci>
+                <ci> pEpR </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO_pEpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_OR_ERor" name="vEO_ER_OR_ERor" fast="false">
+        <listOfReactants>
+          <speciesReference species="ER_OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_a </ci>
+                <ci> ER_OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO_d </ci>
+                <ci> EO_ER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_EpR_OpR_EpROpR" name="vEO_EpR_OpR_EpROpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpR_OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_a </ci>
+                <ci> EpR_OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO_d </ci>
+                <ci> EO_EpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pER_OR_pERor" name="vpEO_pER_OR_pERor" fast="false">
+        <listOfReactants>
+          <speciesReference species="pER_OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_a </ci>
+                <ci> pER_OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO_d </ci>
+                <ci> pEO_pER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pEpR_OpR_pEpROpR" name="vpEO_pEpR_OpR_pEpROpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpR_OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO_a </ci>
+                <ci> pEpR_OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO_d </ci>
+                <ci> pEO_pEpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vor" name="vor" fast="false">
+        <listOfReactants>
+          <speciesReference species="O"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> O </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vOpR" name="vOpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="O"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> O </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OR_EO" name="vEO_OR_EO" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> EO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> EO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vER_OR_ER" name="vER_OR_ER" fast="false">
+        <listOfReactants>
+          <speciesReference species="O"/>
+          <speciesReference species="ER"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> O </ci>
+                <ci> ER </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> ER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OpR_EO" name="vEO_OpR_EO" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> EO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> EO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpR_OpR_EpR" name="vEpR_OpR_EpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="O"/>
+          <speciesReference species="EpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> O </ci>
+                <ci> EpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> EpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OR_pEO" name="vpEO_OR_pEO" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> pEO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> pEO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpER_OR_pER" name="vpER_OR_pER" fast="false">
+        <listOfReactants>
+          <speciesReference species="O"/>
+          <speciesReference species="pER"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> O </ci>
+                <ci> pER </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> pER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OpR_pEO" name="vpEO_OpR_pEO" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> pEO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> pEO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpR_OpR_pEpR" name="vpEpR_OpR_pEpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="O"/>
+          <speciesReference species="pEpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR </ci>
+                <ci> O </ci>
+                <ci> pEpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> pEpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_OR_EOER" name="vEO_ER_OR_EOER" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_ER"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR_a </ci>
+                <ci> EO_ER </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR_d </ci>
+                <ci> EO_ER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_EpR_OpR_EOEpR" name="vEO_EpR_OpR_EOEpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR_a </ci>
+                <ci> EO_EpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR_d </ci>
+                <ci> EO_EpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pER_OR_pEOpER" name="vpEO_pER_OR_pEOpER" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pER"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pER_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR_a </ci>
+                <ci> pEO_pER </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR_d </ci>
+                <ci> pEO_pER_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pEpR_OpR_pEOpEpR" name="vpEO_pEpR_OpR_pEOpEpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR_factor </ci>
+                <ci> kon_OR_a </ci>
+                <ci> pEO_pEpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR_d </ci>
+                <ci> pEO_pEpR_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpR_OpR_pERor" name="vpEpR_OpR_pERor" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="pER_OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OpR"/>
+          <speciesReference species="pE"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_R_on </ci>
+              <ci> kp_R </ci>
+              <ci> pER_OR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpR_pER" name="vpEpR_pER" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="pER"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pR"/>
+          <speciesReference species="pE"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_R_on </ci>
+              <ci> kp_R </ci>
+              <ci> pER </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEK" name="vEK" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EK"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> E </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EK </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEK" name="vpEK" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEK"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pE </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEK </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vK_act" name="vK_act" fast="false">
+        <listOfReactants>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pK"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <apply>
+                  <plus/>
+                  <ci> kp_K_bg </ci>
+                  <apply>
+                    <times/>
+                    <ci> kp_K_egf </ci>
+                    <ci> kp_K_on </ci>
+                  </apply>
+                </apply>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> kdp_K </ci>
+                <ci> pK </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpK" name="vEpK" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpK"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> E </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EpK </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpK" name="vpEpK" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpK"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pE </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEpK </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpE_EK" name="vpE_EK" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pE"/>
+          <speciesReference species="pK"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_E_on </ci>
+              <ci> kp_E </ci>
+              <ci> EpK </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEp" name="vpEp" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EP"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> E </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> EP </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpp" name="vpEpp" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEP"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> pE </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> pEP </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ve_pEpp" name="ve_pEpp" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEP"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="E"/>
+          <speciesReference species="P"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdp_E_on </ci>
+              <ci> kdp_E </ci>
+              <ci> pEP </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpRP2" name="vpRP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pR"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> pR </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> pRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vr_pRP2" name="vr_pRP2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="pRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="R"/>
+          <speciesReference species="P2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdp_R </ci>
+              <ci> pRP2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vr_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="R"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="RP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> R </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> RP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vER_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="ER"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> ER </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> ERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ve_RP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="RP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> E </ci>
+                <ci> RP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> ERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpER_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pER"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> pER </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> pERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpE_RP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="RP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> pE </ci>
+                <ci> RP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> pERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_ER"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> EO_ER </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> EO_ERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_RP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="RP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> EO </ci>
+                <ci> RP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> EO_ERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vERP2_o" fast="false">
+        <listOfReactants>
+          <speciesReference species="ERP2"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> ERP2 </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO_ERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pER_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pER"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> pEO_pER </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> pEO_pERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_RP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="RP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> pEO </ci>
+                <ci> RP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_ER </ci>
+                <ci> pEO_pERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpERP2_o" fast="false">
+        <listOfReactants>
+          <speciesReference species="pERP2"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pERP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pERP2 </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO_pERP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpR_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpR"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> EpR </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> EpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ve_pRP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="E"/>
+          <speciesReference species="pRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> E </ci>
+                <ci> pRP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> EpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpR_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpR"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> pEpR </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> pEpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpE_pRP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pE"/>
+          <speciesReference species="pRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> pE </ci>
+                <ci> pRP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> pEpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_EpR_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpR"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> EO_EpR </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> EO_EpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_pRP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="pRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> EO </ci>
+                <ci> pRP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> EO_EpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpRP2_o" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpRP2"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EpRP2 </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EO_EpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pEpR_P2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpR"/>
+          <speciesReference species="P2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_RP2 </ci>
+                <ci> pEO_pEpR </ci>
+                <ci> P2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_RP2 </ci>
+                <ci> pEO_pEpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pRP2" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="pRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_ER </ci>
+                <ci> pEO </ci>
+                <ci> pRP2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EpR </ci>
+                <ci> pEO_pEpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpRP2_o" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpRP2"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpRP2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEpRP2 </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEO_pEpRP2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vER_P2_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ER"/>
+          <speciesReference species="P2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdp_R </ci>
+              <ci> EpRP2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpER_P2_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pER"/>
+          <speciesReference species="P2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdp_R </ci>
+              <ci> pEpRP2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_ER_P2_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_ER"/>
+          <speciesReference species="P2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdp_R </ci>
+              <ci> EO_EpRP2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_ER_P2_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpRP2"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_ER"/>
+          <speciesReference species="P2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kdp_R </ci>
+              <ci> pEO_pEpRP2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_P" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> EO </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> EPO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEP_o" fast="false">
+        <listOfReactants>
+          <speciesReference species="EP"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EP </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EPO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_P" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> pEO </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> pEPO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEP_o" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEP"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEP </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEPO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OR_P" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OR"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> EO_OR </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> EPO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEP_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EP"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EP </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EPO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEPO_r" fast="false">
+        <listOfReactants>
+          <speciesReference species="EPO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> EPO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> EPO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OR_P" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OR"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> pEO_OR </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> pEPO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEP_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEP"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEP </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEPO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEPO_r" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEPO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> pEPO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> pEPO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OpR_P" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OpR"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> EO_OpR </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> EPO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEP_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EP"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EP </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EPO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEPO_pR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EPO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EPO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> EPO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> EPO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OpR_P" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OpR"/>
+          <speciesReference species="P"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EP </ci>
+                <ci> pEO_OpR </ci>
+                <ci> P </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EP </ci>
+                <ci> pEPO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEP_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEP"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEP </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEPO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEPO_pR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEPO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> pEPO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> pEPO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_pK" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> EO </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EpKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpK_O" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpK"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EpK </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EpKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_pK" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pEO </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEpKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpK_O" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpK"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEpK </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEpKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OR_pK" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OR"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> EO_OR </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EpKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpK_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpK"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EpK </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EpKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpKO_r" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpKO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> EpKO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> EpKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OR_pK" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OR"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pEO_OR </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEpKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpK_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpK"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEpK </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEpKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpKO_R" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpKO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> pEpKO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> pEpKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OpR_pK" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OpR"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> EO_OpR </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EpKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpK_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpK"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EpK </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EpKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEpKO_pR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpKO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> EpKO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> EpKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OpR_pK" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OpR"/>
+          <speciesReference species="pK"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pEO_OpR </ci>
+                <ci> pK </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEpKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpK_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpK"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEpK </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEpKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEpKO_pR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpKO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> pEpKO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> pEpKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_K" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> EO </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEK_O" fast="false">
+        <listOfReactants>
+          <speciesReference species="EK"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EK </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_K" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pEO </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEK_O" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEK"/>
+          <speciesReference species="O"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEK </ci>
+                <ci> O </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEKO </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OR_K" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OR"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> EO_OR </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEK_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EK"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EK </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEKO_R" fast="false">
+        <listOfReactants>
+          <speciesReference species="EKO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> EKO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> EKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OR_K" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OR"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pEO_OR </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEK_OR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEK"/>
+          <speciesReference species="OR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEK </ci>
+                <ci> OR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEKO_R" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEKO"/>
+          <speciesReference species="R"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> pEKO </ci>
+                <ci> R </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OR </ci>
+                <ci> pEKO_OR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEO_OpR_K" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OpR"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> EO_OpR </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> EKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEK_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EK"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> EK </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EO </ci>
+                <ci> EKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vEKO_pR" fast="false">
+        <listOfReactants>
+          <speciesReference species="EKO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> EKO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> EKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEO_OpR_K" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_OpR"/>
+          <speciesReference species="K"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EK </ci>
+                <ci> pEO_OpR </ci>
+                <ci> K </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_EK </ci>
+                <ci> pEKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEK_OpR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEK"/>
+          <speciesReference species="OpR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_EO </ci>
+                <ci> pEK </ci>
+                <ci> OpR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pEO </ci>
+                <ci> pEKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vpEKO_pR" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEKO"/>
+          <speciesReference species="pR"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OpR"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_OR </ci>
+                <ci> pEKO </ci>
+                <ci> pR </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_OpR </ci>
+                <ci> pEKO_OpR </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
