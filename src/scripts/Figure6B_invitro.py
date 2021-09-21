@@ -36,7 +36,7 @@ if not os.path.exists(params_file):
         ('kdp_E', 1.0)
     ])
 
-    model, popt, ens, cost = sc.fit_exps(exps,
+    model, popt, ens, cost = functions.fit_exps(exps,
                                  nets,
                                  pars_fixed,
                                  pars_constrained,
@@ -60,6 +60,17 @@ table_dict_invitro = { par: net_basic.get_var_val(par) for par in table_pars_inv
 
 with open("../../data/invitro/table_pars_invitro.pickle", "wb") as f:
     pickle.dump(table_dict_invitro, f)
+
+## Ensemble analysis:
+out_vars = ["KD_EP", "koff_EO", "koff_EK", "koff_EP", "kp_E", "kp_R", "kdp_E"]
+fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
+functions.plot_ens(ens, net_basic, out_vars, params_opt = popt, step = 10, file = None, axis = ax, mode = "std")
+ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
+ax.set_title("Ensemble fit for invitro experiments", loc = "left");
+plt.tight_layout()
+plt.savefig("../../res/ens_fit_invitro.eps")
+
+
 
 # plot
 exp_ids = ['MKK1_ERK_RSK', 'PERK_PTASE']

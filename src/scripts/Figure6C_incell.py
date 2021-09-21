@@ -6,8 +6,6 @@ import pickle
 import copy
 import os
 from expts import *
-import SCfunctions as sc
-
 
 params_file = "../../data/incell/params_incell.pickle"
 params_file_invitro = "../../data/invitro/params_invitro.pickle"
@@ -31,7 +29,7 @@ if not os.path.exists(params_file):
         ('kp_K_egf', 1.0)
     ])
 
-    model, popt, ens, cost = sc.fit_exps(exps,
+    model, popt, ens, cost = functions.fit_exps(exps,
                                  nets,
                                  pars_fixed,
                                  pars_constrained,
@@ -54,6 +52,16 @@ table_dict_incell = { par: net_basic.get_var_val(par) for par in table_pars_ince
 
 with open("../../data/incell/table_pars_incell.pickle", "wb") as f:
     pickle.dump(table_dict_incell, f)
+
+## Ensemble analysis:
+out_vars = ["KD_RP2", "koff_RP2", "kp_K_bg", "kp_K_egf", "kdp_K", "kdp_R"]
+fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
+functions.plot_ens(ens, net_basic, out_vars, params_opt = popt, step = 10, file = None, axis = ax, mode = "std")
+ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
+ax.set_title("Ensemble fit for incell experiments", loc = "left");
+plt.tight_layout()
+plt.savefig("../../res/ens_fit_incell.eps")
+
 
    
 # plot

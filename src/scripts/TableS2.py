@@ -32,7 +32,11 @@ cells = table.columns[ind_col_invitro].cells
 for i, par in zip(range(len(pars)), pars):
     if par in pars_invitro.keys():
         bold = cells[i].paragraphs[0].runs[0].font.bold
-        cells[i].text = "{:.2g}".format(pars_invitro[par])
+        val = pars_invitro[par]
+        if val>=99.5:
+            cells[i].text = "{:.3g}".format(val)
+        else:
+            cells[i].text = "{:.2g}".format(val)
         cells[i].paragraphs[0].runs[0].font.bold = bold
         cells[i].paragraphs[0].alignment = WD_TABLE_ALIGNMENT.CENTER
 
@@ -45,7 +49,11 @@ cells = table.columns[ind_col_incell].cells
 for i, par in zip(range(len(pars)), pars):
     if par in pars_incell.keys():
         bold = cells[i].paragraphs[0].runs[0].font.bold
-        cells[i].text = "{:.2g}".format(pars_incell[par])
+        val = pars_incell[par]
+        if val>=99.5:
+            cells[i].text = "{:.3g}".format(val)
+        else:
+            cells[i].text = "{:.2g}".format(val)
         cells[i].paragraphs[0].runs[0].font.bold = bold
         cells[i].paragraphs[0].alignment = WD_TABLE_ALIGNMENT.CENTER
 

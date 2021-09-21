@@ -12,6 +12,7 @@ import copy
 import pandas as pd
 import os
 import functions
+import SCfunctions as sc
 
 # should we plot labels on individual plots?
 plot_labels = False
@@ -309,6 +310,30 @@ params_SPR_all = params_opt['RSK_ORF'] + \
     KeyedList([(p, params_opt['RSK_ppERK_ORF'].getByKey(p)) for p in ['a', 'd']])
 with open("../../data/SPR/params_SPR_all.pickle", 'w') as f:
     pickle.dump((params_SPR_all, sf_opt['RSK_ppERK_ORF']), f)
+
+## Ensemble analysis:
+m_id = 'RSK_ppERK_ORF_111'
+nets_nested = {m_id: nets}
+exp_ids = [m_id]
+net_SPR = nets[m_id]
+m_SPR, popt_SPR, ens_SPR, cost_SPR = sc.fit_exps(exps,
+                                     nets_nested,
+                                     params_fixed = {},
+                                     params_constrained = {},
+                                     params_free = params_SPR_all,
+                                     exp_ids = exp_ids,
+                                     global_fit=True,
+                                     global_it=10000,
+                                     return_ens=True)
+
+out_vars = ["koff_ER", "koff_OR", "koff_pEO", "a", "d"]
+fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
+functions.plot_ens(ens_SPR, net_SPR, out_vars, params_opt = popt_SPR, step = 10, file = None, axis = ax, mode = "std")
+ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
+ax.set_title("Ensemble fit for SPR experiments", loc = "left");
+plt.tight_layout()
+plt.savefig("../../res/ens_fit_SPR.eps")
+
 
 ## Save parameters for table
 table_pars_SPR = ['koff_ER', 'koff_OR', 'koff_pEO', 'a', 'd']
