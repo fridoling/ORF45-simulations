@@ -47,7 +47,7 @@ df['RSK_ppERK_ORF_111'].insert(1, 'RSK_ppERK_ORF_111', df_all['RSK_ppERK_ORF_111
 big_error = 1
 small_error = 0.1
 
-if not os.path.exists('../data/Figure5_params.pickle'):    
+if not os.path.exists('../data/SPR/Figure5_SPR_params.pickle'):    
     KD_ER = 2.5
     KD_OR = 1.2e-3
     KD_pEO = 0.8

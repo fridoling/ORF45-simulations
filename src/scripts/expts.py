@@ -4,6 +4,36 @@ import copy
 import numpy as np
 import functions
 
+### functions to modify data
+def set_errors(data, error=0.1, min_error=0.1, absolute=False, ):
+    data_out = copy.deepcopy(data)
+    for net,vars in data.items():
+        for var,times in vars.items():
+            for t,tup in times.items():
+                if absolute:
+                    data_out[net][var][t] = (tup[0], error)
+                else:
+                    data_out[net][var][t] = (tup[0], np.max([error*tup[0],min_error]))
+    return data_out
+
+def subtract_bg(data, bg=0, norm=True, renormalize=True):
+    data_out = copy.deepcopy(data)
+    for net, vars in data.items():
+        for var,times in vars.items():
+            for t,tup in times.items():
+                if renormalize:
+                    data_out[net][var][t] = ((tup[0]-bg)/(1-bg), tup[1])
+                else:
+                    data_out[net][var][t] = (tup[0]-bg, tup[1])
+    return data_out
+
+def order_params(params, m):
+    params_ordered = KeyedList()
+    for p in m.params.keys():
+        val = params.getByKey(p)
+        params_ordered.setByKey(p, val)
+    return params_ordered
+        
 ### load basic network
 net_basic = IO.from_SBML_file('../models/model_invitro_incell.xml','net_basic')
 
@@ -66,7 +96,7 @@ data['PERK_RSK'] = {
         }
     }    
 }
-data['PERK_RSK'] = functions.set_errors(data['PERK_RSK'], error=0.05, absolute=False)
+data['PERK_RSK'] = set_errors(data['PERK_RSK'], error=0.05, absolute=False)
 exp = Experiment(name='PERK_RSK', data=data['PERK_RSK'])
 #exp.set_sf_prior([('pRtot')], 'gaussian in log sf', (np.log(38), np.log(2)))
 exp.set_fixed_sf({'pRtot': 38})
@@ -88,9 +118,9 @@ nets['MKK1_ERK_RSK']['K'].set_var_ic('Otot', 0)
 nets['MKK1_ERK_RSK']['K'].set_var_ic('kp_R_on', 0)
 nets['MKK1_ERK_RSK']['K'].set_var_constant('kp_R_on', False)
 nets['MKK1_ERK_RSK']['K'].add_event(id='switch_kp_R_on', trigger='gt(time, 1000)', event_assignments={'kp_R_on': 1})
-nets['MKK1_ERK_RSK']['K'].set_var_ic('kp_K_on', 0)
-nets['MKK1_ERK_RSK']['K'].set_var_constant('kp_K_on', False)
-nets['MKK1_ERK_RSK']['K'].add_event(id='switch_kp_K_on', trigger='gt(time, 1000)', event_assignments={'kp_K_on': 1})
+nets['MKK1_ERK_RSK']['K'].set_var_ic('kp_E_on', 0)
+nets['MKK1_ERK_RSK']['K'].set_var_constant('kp_E_on', False)
+nets['MKK1_ERK_RSK']['K'].add_event(id='switch_kp_E_on', trigger='gt(time, 1000)', event_assignments={'kp_E_on': 1})
 nets['MKK1_ERK_RSK']['K'].set_name('K')
 
 # define net with same switch, but without o
@@ -125,7 +155,7 @@ data['MKK1_ERK_RSK'] = {
         }
     }    
 }
-data['MKK1_ERK_RSK'] = functions.set_errors(data['MKK1_ERK_RSK'], error=0.05, absolute=False)
+data['MKK1_ERK_RSK'] = set_errors(data['MKK1_ERK_RSK'], error=0.05, absolute=False)
 exp = Experiment(name='MKK1_ERK_RSK', data=data['MKK1_ERK_RSK'])
 exp.set_fixed_sf({'pRtot': 4.5})
 #exp.set_sf_prior([('pRtot')], 'gaussian in log sf', (np.log(4.5), np.log(1.1)))
@@ -207,8 +237,8 @@ data['PERK_PTASE'] = {
     }
 }
 
-data['PERK_PTASE'] = functions.subtract_bg(data['PERK_PTASE'], bg=0.14)
-data['PERK_PTASE'] = functions.set_errors(data['PERK_PTASE'], error=0.05, min_error=0.1, absolute=False)
+data['PERK_PTASE'] = subtract_bg(data['PERK_PTASE'], bg=0.14)
+data['PERK_PTASE'] = set_errors(data['PERK_PTASE'], error=0.05, min_error=0.1, absolute=False)
 exp = Experiment(name='PERK_PTASE', data=data['PERK_PTASE'])
 exp.set_fixed_sf({'pEtot': 1})
 exps['PERK_PTASE'] = exp
@@ -324,7 +354,7 @@ data['INCELL_WT'] = {
     }
 }
 
-data['INCELL_WT'] = functions.set_errors(data['INCELL_WT'], error=0.05, min_error=0.01, absolute=True)
+data['INCELL_WT'] = set_errors(data['INCELL_WT'], error=0.05, min_error=0.01, absolute=True)
 exp = Experiment(name='INCELL_WT', data=data['INCELL_WT'])
 exp.set_fixed_sf({'pEtot': 9.14})
 exps['INCELL_WT'] = exp
@@ -366,7 +396,7 @@ data['INCELL_RSK_KO'] = {
     }
 }
 
-data['INCELL_RSK_KO'] = functions.set_errors(data['INCELL_RSK_KO'], error=0.05, min_error=0.01, absolute=True)
+data['INCELL_RSK_KO'] = set_errors(data['INCELL_RSK_KO'], error=0.05, min_error=0.01, absolute=True)
 exp = Experiment(name='INCELL_RSK_KO', data=data['INCELL_RSK_KO'])
 exp.set_fixed_sf({'pEtot': 9.14})
 exps['INCELL_RSK_KO'] = exp

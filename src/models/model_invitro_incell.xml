@@ -42,9 +42,9 @@
       <species id="pK" name="pK" compartment="unnamed" initialAmount="0.1" boundaryCondition="true"/>
       <species id="K" name="K" compartment="unnamed" initialAmount="0"/>
       <species id="EpK" name="EpK" compartment="unnamed" initialAmount="0"/>
-      <species id="EK" name="EK" compartment="unnamed" initialAmount="0"/>
+      <species id="EK" name="EpK" compartment="unnamed" initialAmount="0"/>
       <species id="pEpK" name="pEpK" compartment="unnamed" initialAmount="0"/>
-      <species id="pEK" name="pEK" compartment="unnamed" initialAmount="0"/>
+      <species id="pEK" name="pEpK" compartment="unnamed" initialAmount="0"/>
       <species id="pEP" name="pEP" compartment="unnamed" initialAmount="0"/>
       <species id="EP" name="EP" compartment="unnamed" initialAmount="0"/>
       <species id="P" name="P" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
@@ -86,6 +86,8 @@
       <species id="pEKO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="EKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pEKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="ep_FSUB" compartment="unnamed" initialAmount="0" constant="false"/>
+      <species id="rp_VFSUB" compartment="unnamed" initialAmount="0" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="kon_ER" name="kon_ER" value="1"/>
@@ -645,9 +647,32 @@
           </apply>
         </math>
       </assignmentRule>
+      <assignmentRule variable="ep_FSUB">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> pE </ci>
+            <ci> pER </ci>
+            <ci> pER_OR </ci>
+            <ci> pEpR_OpR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="rp_VFSUB">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> pR </ci>
+            <ci> EpR </ci>
+            <ci> pEpR </ci>
+            <ci> EO_EpR </ci>
+            <ci> pEO_pEpR </ci>
+          </apply>
+        </math>
+      </assignmentRule>
     </listOfRules>
     <listOfReactions>
-      <reaction id="vER" name="vER" fast="false">
+      <reaction id="ver" name="ver" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="R"/>
@@ -675,7 +700,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR" name="vEpR" fast="false">
+      <reaction id="verp" name="verp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pR"/>
@@ -703,7 +728,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER" name="vpER" fast="false">
+      <reaction id="vepr" name="vepr" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="R"/>
@@ -731,7 +756,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR" name="vpEpR" fast="false">
+      <reaction id="veprp" name="veprp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pR"/>
@@ -759,7 +784,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_EO" name="vEO_ER_EO" fast="false">
+      <reaction id="veo_er_eo" name="veo_er_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="R"/>
@@ -787,7 +812,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_OR_OR" name="vER_OR_OR" fast="false">
+      <reaction id="ver_or_or" name="ver_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OR"/>
@@ -815,7 +840,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_EO" name="vEO_EpR_EO" fast="false">
+      <reaction id="veo_erp_eo" name="veo_erp_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pR"/>
@@ -843,7 +868,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_OpR_OpR" name="vEpR_OpR_OpR" fast="false">
+      <reaction id="verp_orp_orp" name="verp_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OpR"/>
@@ -871,7 +896,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_pEO" name="vpEO_pER_pEO" fast="false">
+      <reaction id="vepo_epr_epo" name="vepo_epr_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="R"/>
@@ -899,7 +924,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_OR_OR" name="vpER_OR_OR" fast="false">
+      <reaction id="vepr_or_or" name="vepr_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OR"/>
@@ -927,7 +952,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_OpR" name="vpEpR_OpR_OpR" fast="false">
+      <reaction id="veprp_orp_orp" name="veprp_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OpR"/>
@@ -955,7 +980,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_pEO" name="vpEO_pEpR_pEO" fast="false">
+      <reaction id="vepo_eprp_epo" name="vepo_eprp_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pR"/>
@@ -983,7 +1008,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_OR_EOor" name="vEO_ER_OR_EOor" fast="false">
+      <reaction id="veo_er_or_eoor" name="veo_er_or_eoor" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
         </listOfReactants>
@@ -1009,7 +1034,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ERo_OpR_EOOpR" name="vEO_ERo_OpR_EOOpR" fast="false">
+      <reaction id="veo_ero_orp_eoorp" name="veo_ero_orp_eoorp" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
         </listOfReactants>
@@ -1035,7 +1060,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_OR_pEOor" name="vpEO_pER_OR_pEOor" fast="false">
+      <reaction id="vepo_epr_or_epoor" name="vepo_epr_or_epoor" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
         </listOfReactants>
@@ -1061,7 +1086,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_pEOOpR" name="vpEO_pEpR_OpR_pEOOpR" fast="false">
+      <reaction id="vepo_eprp_orp_epoorp" name="vepo_eprp_orp_epoorp" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
         </listOfReactants>
@@ -1087,7 +1112,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO" name="vEO" fast="false">
+      <reaction id="veo" name="veo" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="O"/>
@@ -1115,7 +1140,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO" name="vpEO" fast="false">
+      <reaction id="vepo" name="vepo" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="O"/>
@@ -1143,7 +1168,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_OR" name="vEO_OR_OR" fast="false">
+      <reaction id="veo_or_or" name="veo_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OR"/>
@@ -1171,7 +1196,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_ER" name="vEO_ER_ER" fast="false">
+      <reaction id="veo_er_er" name="veo_er_er" fast="false">
         <listOfReactants>
           <speciesReference species="ER"/>
           <speciesReference species="O"/>
@@ -1199,7 +1224,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_OpR" name="vEO_OpR_OpR" fast="false">
+      <reaction id="veo_orp_orp" name="veo_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OpR"/>
@@ -1227,7 +1252,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_OR" name="vpEO_OR_OR" fast="false">
+      <reaction id="vepo_or_or" name="vepo_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OR"/>
@@ -1255,7 +1280,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_EpR" name="vEO_EpR_EpR" fast="false">
+      <reaction id="veo_erp_erp" name="veo_erp_erp" fast="false">
         <listOfReactants>
           <speciesReference species="EpR"/>
           <speciesReference species="O"/>
@@ -1283,7 +1308,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="pEO_pER_pER" name="pEO_pER_pER" fast="false">
+      <reaction id="epo_epr_epr" name="epo_epr_epr" fast="false">
         <listOfReactants>
           <speciesReference species="pER"/>
           <speciesReference species="O"/>
@@ -1311,7 +1336,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_OpR" name="vpEO_OpR_OpR" fast="false">
+      <reaction id="vepo_orp_orp" name="vepo_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OpR"/>
@@ -1339,7 +1364,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_pEpR" name="vpEO_pEpR_pEpR" fast="false">
+      <reaction id="vepo_eprp_eprp" name="vepo_eprp_eprp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR"/>
           <speciesReference species="O"/>
@@ -1367,7 +1392,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_OR_ERor" name="vEO_ER_OR_ERor" fast="false">
+      <reaction id="veo_er_or_eror" name="veo_er_or_eror" fast="false">
         <listOfReactants>
           <speciesReference species="ER_OR"/>
         </listOfReactants>
@@ -1392,7 +1417,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_OpR_EpROpR" name="vEO_EpR_OpR_EpROpR" fast="false">
+      <reaction id="veo_erp_orp_erporp" name="veo_erp_orp_erporp" fast="false">
         <listOfReactants>
           <speciesReference species="EpR_OpR"/>
         </listOfReactants>
@@ -1417,7 +1442,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_OR_pERor" name="vpEO_pER_OR_pERor" fast="false">
+      <reaction id="vepo_epr_or_epror" name="vepo_epr_or_epror" fast="false">
         <listOfReactants>
           <speciesReference species="pER_OR"/>
         </listOfReactants>
@@ -1442,7 +1467,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_pEpROpR" name="vpEO_pEpR_OpR_pEpROpR" fast="false">
+      <reaction id="vepo_eprp_orp_eprporp" name="vepo_eprp_orp_eprporp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR_OpR"/>
         </listOfReactants>
@@ -1495,7 +1520,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpR" name="vOpR" fast="false">
+      <reaction id="vorp" name="vorp" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pR"/>
@@ -1523,7 +1548,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_EO" name="vEO_OR_EO" fast="false">
+      <reaction id="veo_or_eo" name="veo_or_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="R"/>
@@ -1551,7 +1576,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_OR_ER" name="vER_OR_ER" fast="false">
+      <reaction id="ver_or_er" name="ver_or_er" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="ER"/>
@@ -1579,7 +1604,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_EO" name="vEO_OpR_EO" fast="false">
+      <reaction id="veo_orp_eo" name="veo_orp_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pR"/>
@@ -1607,7 +1632,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_OpR_EpR" name="vEpR_OpR_EpR" fast="false">
+      <reaction id="verp_orp_erp" name="verp_orp_erp" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpR"/>
@@ -1635,7 +1660,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_pEO" name="vpEO_OR_pEO" fast="false">
+      <reaction id="vepo_or_epo" name="vepo_or_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="R"/>
@@ -1663,7 +1688,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_OR_pER" name="vpER_OR_pER" fast="false">
+      <reaction id="vepr_or_epr" name="vepr_or_epr" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pER"/>
@@ -1691,7 +1716,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_pEO" name="vpEO_OpR_pEO" fast="false">
+      <reaction id="vepo_orp_epo" name="vepo_orp_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pR"/>
@@ -1719,7 +1744,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_pEpR" name="vpEpR_OpR_pEpR" fast="false">
+      <reaction id="veprp_orp_eprp" name="veprp_orp_eprp" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpR"/>
@@ -1747,7 +1772,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_OR_EOER" name="vEO_ER_OR_EOER" fast="false">
+      <reaction id="veo_er_or_eoer" name="veo_er_or_eoer" fast="false">
         <listOfReactants>
           <speciesReference species="EO_ER"/>
         </listOfReactants>
@@ -1773,7 +1798,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_OpR_EOEpR" name="vEO_EpR_OpR_EOEpR" fast="false">
+      <reaction id="veo_erp_orp_eoerp" name="veo_erp_orp_eoerp" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR"/>
         </listOfReactants>
@@ -1799,7 +1824,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_OR_pEOpER" name="vpEO_pER_OR_pEOpER" fast="false">
+      <reaction id="vepo_epr_or_epoepr" name="vepo_epr_or_epoepr" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pER"/>
         </listOfReactants>
@@ -1825,7 +1850,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_pEOpEpR" name="vpEO_pEpR_OpR_pEOpEpR" fast="false">
+      <reaction id="vepo_eprp_orp_epoeprp" name="vepo_eprp_orp_epoeprp" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR"/>
         </listOfReactants>
@@ -1851,7 +1876,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_pERor" name="vpEpR_OpR_pERor" reversible="false" fast="false">
+      <reaction id="veprp_orp_epror" name="veprp_orp_epror" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pER_OR"/>
         </listOfReactants>
@@ -1870,7 +1895,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_pER" name="vpEpR_pER" reversible="false" fast="false">
+      <reaction id="veprp_epr" name="veprp_epr" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pER"/>
         </listOfReactants>
@@ -1889,7 +1914,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK" name="vEK" fast="false">
+      <reaction id="vekin_inact" name="vekin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="K"/>
@@ -1916,7 +1941,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK" name="vpEK" fast="false">
+      <reaction id="vepkin_inact" name="vepkin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="K"/>
@@ -1943,7 +1968,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vK_act" name="vK_act" fast="false">
+      <reaction id="vkin_act" name="vkin_act" fast="false">
         <listOfReactants>
           <speciesReference species="K"/>
         </listOfReactants>
@@ -1976,7 +2001,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK" name="vEpK" fast="false">
+      <reaction id="vekin" name="vekin" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pK"/>
@@ -2003,7 +2028,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK" name="vpEpK" fast="false">
+      <reaction id="vepkin" name="vepkin" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pK"/>
@@ -2030,7 +2055,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_EK" name="vpE_EK" reversible="false" fast="false">
+      <reaction id="vep_ekin" name="vep_ekin" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
         </listOfReactants>
@@ -2049,7 +2074,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEp" name="vpEp" fast="false">
+      <reaction id="vepp" name="vepp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="P"/>
@@ -2076,7 +2101,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpp" name="vpEpp" fast="false">
+      <reaction id="veppp" name="veppp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="P"/>
@@ -2103,7 +2128,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="ve_pEpp" name="ve_pEpp" reversible="false" fast="false">
+      <reaction id="ve_eppp" name="ve_eppp" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
         </listOfReactants>
@@ -2122,7 +2147,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRP2" name="vpRP2" fast="false">
+      <reaction id="vrpPP2" name="vrpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pR"/>
           <speciesReference species="P2"/>
@@ -2149,7 +2174,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vr_pRP2" name="vr_pRP2" reversible="false" fast="false">
+      <reaction id="vr_rpPP2" name="vr_rpPP2" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pRP2"/>
         </listOfReactants>
@@ -2167,7 +2192,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vr_P2" fast="false">
+      <reaction id="vr_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="R"/>
           <speciesReference species="P2"/>
@@ -2194,7 +2219,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_P2" fast="false">
+      <reaction id="ver_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="ER"/>
           <speciesReference species="P2"/>
@@ -2221,7 +2246,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="ve_RP2" fast="false">
+      <reaction id="ve_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="RP2"/>
@@ -2248,7 +2273,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_P2" fast="false">
+      <reaction id="vepr_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pER"/>
           <speciesReference species="P2"/>
@@ -2275,7 +2300,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_RP2" fast="false">
+      <reaction id="vep_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="RP2"/>
@@ -2302,7 +2327,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_P2" fast="false">
+      <reaction id="veo_er_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO_ER"/>
           <speciesReference species="P2"/>
@@ -2329,7 +2354,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_RP2" fast="false">
+      <reaction id="veo_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="RP2"/>
@@ -2356,7 +2381,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vERP2_o" fast="false">
+      <reaction id="verPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="ERP2"/>
           <speciesReference species="O"/>
@@ -2383,7 +2408,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_P2" fast="false">
+      <reaction id="vepo_epr_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pER"/>
           <speciesReference species="P2"/>
@@ -2410,7 +2435,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_RP2" fast="false">
+      <reaction id="vepo_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="RP2"/>
@@ -2437,7 +2462,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpERP2_o" fast="false">
+      <reaction id="veprPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="pERP2"/>
           <speciesReference species="O"/>
@@ -2464,7 +2489,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_P2" fast="false">
+      <reaction id="verp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="EpR"/>
           <speciesReference species="P2"/>
@@ -2491,7 +2516,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="ve_pRP2" fast="false">
+      <reaction id="ve_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pRP2"/>
@@ -2518,7 +2543,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_P2" fast="false">
+      <reaction id="veprp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR"/>
           <speciesReference species="P2"/>
@@ -2545,7 +2570,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_pRP2" fast="false">
+      <reaction id="vep_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pRP2"/>
@@ -2572,7 +2597,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_P2" fast="false">
+      <reaction id="veo_erp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR"/>
           <speciesReference species="P2"/>
@@ -2599,7 +2624,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRP2" fast="false">
+      <reaction id="veo_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRP2"/>
@@ -2626,7 +2651,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRP2_o" fast="false">
+      <reaction id="verpPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="EpRP2"/>
           <speciesReference species="O"/>
@@ -2653,7 +2678,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_P2" fast="false">
+      <reaction id="vepo_eprp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR"/>
           <speciesReference species="P2"/>
@@ -2680,7 +2705,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pRP2" fast="false">
+      <reaction id="vepo_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pRP2"/>
@@ -2707,7 +2732,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpRP2_o" fast="false">
+      <reaction id="veprpPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRP2"/>
           <speciesReference species="O"/>
@@ -2734,7 +2759,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_P2_cat" fast="false">
+      <reaction id="ver_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EpRP2"/>
         </listOfReactants>
@@ -2752,7 +2777,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_P2_cat" fast="false">
+      <reaction id="vepr_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRP2"/>
         </listOfReactants>
@@ -2770,7 +2795,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_P2_cat" fast="false">
+      <reaction id="veo_er_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpRP2"/>
         </listOfReactants>
@@ -2788,7 +2813,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_ER_P2_cat" fast="false">
+      <reaction id="vepo_er_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpRP2"/>
         </listOfReactants>
@@ -2806,7 +2831,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_P" fast="false">
+      <reaction id="veo_PP" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="P"/>
@@ -2833,7 +2858,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEP_o" fast="false">
+      <reaction id="vePP_o" fast="false">
         <listOfReactants>
           <speciesReference species="EP"/>
           <speciesReference species="O"/>
@@ -2860,7 +2885,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_P" fast="false">
+      <reaction id="vepo_PP" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="P"/>
@@ -2887,7 +2912,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEP_o" fast="false">
+      <reaction id="vepPP_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
           <speciesReference species="O"/>
@@ -2914,7 +2939,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_P" fast="false">
+      <reaction id="veo_or_PP" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
           <speciesReference species="P"/>
@@ -2941,7 +2966,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEP_OR" fast="false">
+      <reaction id="vePP_OR" fast="false">
         <listOfReactants>
           <speciesReference species="EP"/>
           <speciesReference species="OR"/>
@@ -2968,7 +2993,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEPO_r" fast="false">
+      <reaction id="veoPP_r" fast="false">
         <listOfReactants>
           <speciesReference species="EPO"/>
           <speciesReference species="R"/>
@@ -2995,7 +3020,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_P" fast="false">
+      <reaction id="vepo_or_PP" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
           <speciesReference species="P"/>
@@ -3022,7 +3047,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEP_OR" fast="false">
+      <reaction id="vepPP_OR" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
           <speciesReference species="OR"/>
@@ -3049,7 +3074,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEPO_r" fast="false">
+      <reaction id="vepoPP_r" fast="false">
         <listOfReactants>
           <speciesReference species="pEPO"/>
           <speciesReference species="R"/>
@@ -3076,7 +3101,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_P" fast="false">
+      <reaction id="veo_orp_PP" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="P"/>
@@ -3103,7 +3128,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEP_OpR" fast="false">
+      <reaction id="vePP_orp" fast="false">
         <listOfReactants>
           <speciesReference species="EP"/>
           <speciesReference species="OpR"/>
@@ -3130,7 +3155,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEPO_pR" fast="false">
+      <reaction id="veoPP_rp" fast="false">
         <listOfReactants>
           <speciesReference species="EPO"/>
           <speciesReference species="pR"/>
@@ -3157,7 +3182,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_P" fast="false">
+      <reaction id="vepo_orp_PP" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="P"/>
@@ -3184,7 +3209,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEP_OpR" fast="false">
+      <reaction id="vepPP_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
           <speciesReference species="OpR"/>
@@ -3211,7 +3236,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEPO_pR" fast="false">
+      <reaction id="vepoPP_rp" fast="false">
         <listOfReactants>
           <speciesReference species="pEPO"/>
           <speciesReference species="pR"/>
@@ -3238,7 +3263,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pK" fast="false">
+      <reaction id="veo_kin" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pK"/>
@@ -3265,7 +3290,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK_O" fast="false">
+      <reaction id="vekin_o" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
           <speciesReference species="O"/>
@@ -3292,7 +3317,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pK" fast="false">
+      <reaction id="vepo_kin" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pK"/>
@@ -3319,7 +3344,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK_O" fast="false">
+      <reaction id="vepkin_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEpK"/>
           <speciesReference species="O"/>
@@ -3346,7 +3371,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_pK" fast="false">
+      <reaction id="veo_or_kin" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
           <speciesReference species="pK"/>
@@ -3373,7 +3398,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK_OR" fast="false">
+      <reaction id="vekin_OR" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
           <speciesReference species="OR"/>
@@ -3400,7 +3425,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpKO_r" fast="false">
+      <reaction id="veokin_r" fast="false">
         <listOfReactants>
           <speciesReference species="EpKO"/>
           <speciesReference species="R"/>
@@ -3427,7 +3452,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_pK" fast="false">
+      <reaction id="vepo_or_kin" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
           <speciesReference species="pK"/>
@@ -3454,7 +3479,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK_OR" fast="false">
+      <reaction id="vepkin_OR" fast="false">
         <listOfReactants>
           <speciesReference species="pEpK"/>
           <speciesReference species="OR"/>
@@ -3481,7 +3506,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpKO_R" fast="false">
+      <reaction id="vepokin_r" fast="false">
         <listOfReactants>
           <speciesReference species="pEpKO"/>
           <speciesReference species="R"/>
@@ -3508,7 +3533,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_pK" fast="false">
+      <reaction id="veo_orp_kin" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="pK"/>
@@ -3535,7 +3560,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK_OpR" fast="false">
+      <reaction id="vekin_orp" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
           <speciesReference species="OpR"/>
@@ -3562,7 +3587,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpKO_pR" fast="false">
+      <reaction id="veokin_rp" fast="false">
         <listOfReactants>
           <speciesReference species="EpKO"/>
           <speciesReference species="pR"/>
@@ -3589,7 +3614,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_pK" fast="false">
+      <reaction id="vepo_orp_kin" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="pK"/>
@@ -3616,7 +3641,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK_OpR" fast="false">
+      <reaction id="vepkin_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpK"/>
           <speciesReference species="OpR"/>
@@ -3643,7 +3668,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpKO_pR" fast="false">
+      <reaction id="vepokin_rp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpKO"/>
           <speciesReference species="pR"/>
@@ -3670,7 +3695,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_K" fast="false">
+      <reaction id="veo_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="K"/>
@@ -3697,7 +3722,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK_O" fast="false">
+      <reaction id="vekin_inact_o" fast="false">
         <listOfReactants>
           <speciesReference species="EK"/>
           <speciesReference species="O"/>
@@ -3724,7 +3749,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_K" fast="false">
+      <reaction id="vepo_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="K"/>
@@ -3751,7 +3776,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK_O" fast="false">
+      <reaction id="vepkin_inact_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEK"/>
           <speciesReference species="O"/>
@@ -3778,7 +3803,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_K" fast="false">
+      <reaction id="veo_or_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
           <speciesReference species="K"/>
@@ -3805,7 +3830,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK_OR" fast="false">
+      <reaction id="vekin_inact_OR" fast="false">
         <listOfReactants>
           <speciesReference species="EK"/>
           <speciesReference species="OR"/>
@@ -3832,7 +3857,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEKO_R" fast="false">
+      <reaction id="veokin_inact_r" fast="false">
         <listOfReactants>
           <speciesReference species="EKO"/>
           <speciesReference species="R"/>
@@ -3859,7 +3884,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_K" fast="false">
+      <reaction id="vepo_or_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
           <speciesReference species="K"/>
@@ -3886,7 +3911,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK_OR" fast="false">
+      <reaction id="vepkin_inact_OR" fast="false">
         <listOfReactants>
           <speciesReference species="pEK"/>
           <speciesReference species="OR"/>
@@ -3913,7 +3938,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEKO_R" fast="false">
+      <reaction id="vepokin_inact_r" fast="false">
         <listOfReactants>
           <speciesReference species="pEKO"/>
           <speciesReference species="R"/>
@@ -3940,7 +3965,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_K" fast="false">
+      <reaction id="veo_orp_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="K"/>
@@ -3967,7 +3992,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK_OpR" fast="false">
+      <reaction id="vekin_inact_orp" fast="false">
         <listOfReactants>
           <speciesReference species="EK"/>
           <speciesReference species="OpR"/>
@@ -3994,7 +4019,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEKO_pR" fast="false">
+      <reaction id="veokin_inact_rp" fast="false">
         <listOfReactants>
           <speciesReference species="EKO"/>
           <speciesReference species="pR"/>
@@ -4021,7 +4046,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_K" fast="false">
+      <reaction id="vepo_orp_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="K"/>
@@ -4048,7 +4073,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK_OpR" fast="false">
+      <reaction id="vepkin_inact_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pEK"/>
           <speciesReference species="OpR"/>
@@ -4075,7 +4100,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEKO_pR" fast="false">
+      <reaction id="vepokin_inact_rp" fast="false">
         <listOfReactants>
           <speciesReference species="pEKO"/>
           <speciesReference species="pR"/>
