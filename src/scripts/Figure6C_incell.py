@@ -46,7 +46,16 @@ if not os.path.exists(params_file):
 else: 
     with open(params_file, 'r') as f:
         model, popt, ens, cost = pickle.load(f)
-    
+## Save parameters for table
+table_pars_incell = ['KD_ER', 'KD_EpR', 'KD_OR', 'KD_OpR', 'KD_EO', 'KD_pEO', 'KD_EK', 'KD_EP', 'KD_RP2', 'koff_ER', 'koff_OR', 
+        'koff_EO', 'koff_pEO', 'koff_EK', 'koff_EP', 'koff_RP2', 'kp_E', 'kp_R', 'kp_K_bg', 'kp_K_egf', 'kdp_E', 'kdp_R', 'kdp_K', 'a', 'd']
+net_basic.set_var_vals(popt)
+table_dict_incell = { par: net_basic.get_var_val(par) for par in table_pars_incell }
+
+with open("../../data/incell/table_pars_incell.pickle", "wb") as f:
+    pickle.dump(table_dict_incell, f)
+
+   
 # plot
 exp_ids = ['INCELL_WT', 'INCELL_RSK_KO']
 colors = {'K': 'b', 'ORF': 'r'}
