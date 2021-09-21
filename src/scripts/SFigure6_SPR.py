@@ -16,17 +16,17 @@ import functions
 # should we plot labels on individual plots?
 plot_labels = False
        
-net_basic = IO.from_SBML_file('./models/model_SPR.xml','net_basic')
-net_basic_ppERK_ORF = IO.from_SBML_file('./models/model_SPR.xml','net_ppERK_ORF')
+net_basic = IO.from_SBML_file('../models/model_SPR.xml','net_basic')
+net_basic_ppERK_ORF = IO.from_SBML_file('../models/model_SPR.xml','net_ppERK_ORF')
 
 data = {}
 models = {}
 
-with open('../data/SPR/SPR_data.pickle', 'r') as f:
+with open('../../data/SPR/SPR_data.pickle', 'r') as f:
     df, t_iv = pickle.load(f)
 
-if os.path.exists("../data/SPR/params_SPR.pickle"):
-    with open("../data/SPR/params_SPR.pickle", 'r') as f:
+if os.path.exists("../../data/SPR/params_SPR.pickle"):
+    with open("../../data/SPR/params_SPR.pickle", 'r') as f:
         params_opt, sf_opt, data, nets, exps = pickle.load(f)
 else:
     nets = {}
@@ -300,14 +300,23 @@ else:
     m = models[m_id]
     params_opt[m_id] = Optimization.fmin_lm_log_params(m, params=params_init[m_id], maxiter=10, disp=True)
     sf_opt[m_id] = m.GetScaleFactors()        
-    params_SPR_all = params_opt['RSK_ORF'] + \
-        params_opt['RSK_ppERK'] + \
-        params_opt['ppERK_ORF'] + \
-        KeyedList([(p, params_opt['RSK_ppERK_ORF'].getByKey(p)) for p in ['a', 'd']])
-    with open("../data/SPR/params_SPR.pickle", 'w') as f:
+    with open("../../data/SPR/params_SPR.pickle", 'w') as f:
          pickle.dump((params_opt, sf_opt, data, nets, exps), f)
-    with open("../data/SPR/params_SPR_all.pickle", 'w') as f:
-         pickle.dump((params_SPR_all, sf_opt[m_id]), f)
+
+params_SPR_all = params_opt['RSK_ORF'] + \
+    params_opt['RSK_ppERK'] + \
+    params_opt['ppERK_ORF'] + \
+    KeyedList([(p, params_opt['RSK_ppERK_ORF'].getByKey(p)) for p in ['a', 'd']])
+with open("../../data/SPR/params_SPR_all.pickle", 'w') as f:
+    pickle.dump((params_SPR_all, sf_opt['RSK_ppERK_ORF']), f)
+
+## Save parameters for table
+table_pars_SPR = ['koff_ER', 'koff_OR', 'koff_pEO', 'a', 'd']
+net = nets['RSK_ppERK_ORF_111']
+net.set_var_vals(params_SPR_all)
+table_dict_SPR = { par: net.get_var_val(par) for par in table_pars_SPR }
+with open("../../res/table_pars_SPR.pickle", "wb") as f:
+    pickle.dump(table_dict_SPR, f)
 
 
 ## Plot
@@ -380,5 +389,5 @@ for m_id in m_ids:
                     s=s+var+' = '+'{:.2g}'.format(val)+'\n'
             ax.text(0.8, 0.9, s, transform=ax.transAxes, verticalalignment='top')
         plt.tight_layout()
-        plt.savefig('../res/SFigure6_SPR_'+exp_id+'.pdf')
-        plt.savefig('../res/SFigure6_SPR_'+exp_id+'.eps')
+        plt.savefig('../../res/SFigure6_SPR_'+exp_id+'.pdf')
+        plt.savefig('../../res/SFigure6_SPR_'+exp_id+'.eps')
