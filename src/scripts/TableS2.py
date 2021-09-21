@@ -36,5 +36,17 @@ for i, par in zip(range(len(pars)), pars):
         cells[i].paragraphs[0].runs[0].font.bold = bold
         cells[i].paragraphs[0].alignment = WD_TABLE_ALIGNMENT.CENTER
 
+## updating incell parameters
+ind_col_incell = colnames.index('in cell fit^')
+
+with open("../../data/incell/table_pars_incell.pickle", 'rb') as f:
+    pars_incell = pickle.load(f)
+cells = table.columns[ind_col_incell].cells
+for i, par in zip(range(len(pars)), pars):
+    if par in pars_incell.keys():
+        bold = cells[i].paragraphs[0].runs[0].font.bold
+        cells[i].text = "{:.2g}".format(pars_incell[par])
+        cells[i].paragraphs[0].runs[0].font.bold = bold
+        cells[i].paragraphs[0].alignment = WD_TABLE_ALIGNMENT.CENTER
 
 document.save("../../res/TableS2.docx")
