@@ -315,7 +315,7 @@ table_pars_SPR = ['koff_ER', 'koff_OR', 'koff_pEO', 'a', 'd']
 net = nets['RSK_ppERK_ORF_111']
 net.set_var_vals(params_SPR_all)
 table_dict_SPR = { par: net.get_var_val(par) for par in table_pars_SPR }
-with open("../../res/table_pars_SPR.pickle", "wb") as f:
+with open("../../data/SPR/table_pars_SPR.pickle", "wb") as f:
     pickle.dump(table_dict_SPR, f)
 
 

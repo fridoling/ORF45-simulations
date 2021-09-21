@@ -52,6 +52,15 @@ else:
     with open(params_file, 'r') as f:
         model, popt, ens, cost = pickle.load(f)
     
+## Save parameters for table
+table_pars_invitro = ['KD_ER', 'KD_EpR', 'KD_OR', 'KD_OpR', 'KD_EO', 'KD_pEO', 'KD_EK', 'KD_EP', 'koff_ER', 'koff_OR', 
+        'koff_EO', 'koff_pEO', 'koff_EK', 'koff_EP', 'kp_E', 'kp_R', 'kdp_E', 'a', 'd']
+net_basic.set_var_vals(popt)
+table_dict_invitro = { par: net_basic.get_var_val(par) for par in table_pars_invitro }
+
+with open("../../data/invitro/table_pars_invitro.pickle", "wb") as f:
+    pickle.dump(table_dict_invitro, f)
+
 # plot
 exp_ids = ['MKK1_ERK_RSK', 'PERK_PTASE']
 colors = {'K': 'b', '+ORF45': 'r', '+RSK': 'gray', '+RSK+ORF(1)': 'y', '+RSK+ORF(5)': 'r'}
