@@ -66,7 +66,7 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	in detail in the model (see Section~\ref{sss:activation}).
 	
 	\begin{figure}[h!]
-		\centering \includegraphics[width=0.5\linewidth]{scheme.pdf}
+		\centering \includegraphics[width=0.5\linewidth]{../res/diagram_reaction_scheme}
 		\caption{The reactions occurring in the model are represented using separate
 			arrows from the reactants to the product. Double arrows indicate reversible
 			reactions.}
@@ -93,7 +93,7 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	either blue or green in the diagram in Figure~\ref{fig:diagram}.
 	
 	\begin{figure}[h!]
-		\centering \includegraphics[width=\linewidth]{layout.pdf}
+		\centering \includegraphics[width=\linewidth]{../res/diagram_all}
 		\caption{Diagram showing all binding reactions and the possible complexes formed
 			by the three basic components ERK (\texttt{E}), RSK (\texttt{R}),
 			and ORF45 (\texttt{O}). The colors are used to group species that
@@ -106,10 +106,10 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	\end{figure}
 	
 	\begin{figure}[h!]
-		\centering \includegraphics[width=0.45\linewidth]{ekin.pdf}
-		\includegraphics[width=0.45\linewidth]{rkin.pdf}\\
-		\includegraphics[width=0.45\linewidth]{epp.pdf}
-		\includegraphics[width=0.45\linewidth]{rpp2.pdf}
+		\centering \includegraphics[width=0.45\linewidth]{../res/diagram_EK}
+		\includegraphics[width=0.45\linewidth]{../res/diagram_pER}\\
+		\includegraphics[width=0.45\linewidth]{../res/diagram_EP}
+		\includegraphics[width=0.45\linewidth]{../res/diagram_RP2}
 		\caption{Diagram showing phosphorylation and dephosphorylation in the model.
 			Note that binding reactions are reversible (indicated
 			by double arrows) and catalytic reactions are irreversible. The figure shows only reactions involving the basic species. For the full list of catalytic reactions see section \ref{s:reactions}.}
@@ -362,11 +362,11 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 		\begin{tabular}{ll}
 			species  & value ($\mu M$)\\
 			\midrule 
-			\texttt{etot}  & 2.0\\
-			\texttt{ep}  & 0.0 \\
-			\texttt{kintot}  & 0.25\\
-			\texttt{rtot}  & 2.0 \\
-			\texttt{otot}  & 0.0 or 50.0\\
+			\texttt{Etot}  & 2.0\\
+			\texttt{pE}  & 0.0 \\
+			\texttt{Ktot}  & 0.25\\
+			\texttt{Rtot}  & 2.0 \\
+			\texttt{Otot}  & 0.0 or 50.0\\
 		\end{tabular}
 		\par\end{center}
 	
@@ -382,11 +382,11 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 		\begin{tabular}{ll}
 			species  & value ($\mu M$)\\
 			\midrule 
-			\texttt{etot}  & 1.0\\
-			\texttt{ep}  & 1.0\\
-			\texttt{pptot}  & $0\rightarrow1$\\
-			\texttt{rtot}  & 0.0 or 1.0\\
-			\texttt{otot}  & 0.0 or 5.0\\
+			\texttt{Etot}  & 1.0\\
+			\texttt{pE}  & 1.0\\
+			\texttt{Ptot}  & $0\rightarrow1$\\
+			\texttt{Rtot}  & 0.0 or 1.0\\
+			\texttt{Otot}  & 0.0 or 5.0\\
 		\end{tabular}
 		\par\end{center}
 	
@@ -409,13 +409,13 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 		\begin{tabular}{ll}
 			species  & value ($\mu M$)\\
 			\midrule 
-			\texttt{kintot}  & 1.2\\
-			\texttt{kin\_inact}  & 1.2 \\
-			\texttt{etot}  & 0.7\\
-			\texttt{rtot}  & 2.0\\			
-			\texttt{otot}  & 1.0\\
-			\texttt{pptot}  & 1.0\\
-			\texttt{pp2tot}  & 1.0\\
+			\texttt{Ktot}  & 1.2\\
+			\texttt{K}  & 1.2 \\
+			\texttt{Etot}  & 0.7\\
+			\texttt{Rtot}  & 2.0\\			
+			\texttt{Otot}  & 1.0\\
+			\texttt{Ptot}  & 1.0\\
+			\texttt{P2tot}  & 1.0\\
 		\end{tabular}
 		\par\end{center}
 	
@@ -431,27 +431,27 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	\label{s:reactions}
 	\begin{footnotesize}
 		\subsection*{ERK RSK binding}
-		\input{reactions_er}
+		\input{reactions_ER}
 		\subsection*{ERK ORF binding}
-		\input{reactions_eo}
+		\input{reactions_EO}
 		\subsection*{ppERK ORF binding}
-		\input{reactions_epo}
+		\input{reactions_pEO}
 		\subsection*{ORF RSK binding}
-		\input{reactions_or}
+		\input{reactions_OR}
 		\subsection*{ORF pRSK binding}
-		\input{reactions_orp}
+		\input{reactions_OpR}
 		\subsection*{ERK MKK binding}
-		\input{reactions_ekin}
+		\input{reactions_EK}
 		\subsection*{ERK MKP binding}
-		\input{reactions_ePP}
+		\input{reactions_EP}
 		\subsection*{RSK PP2 binding}
-		\input{reactions_rPP2}	
+		\input{reactions_RP2}	
 		\subsection*{ERK phosphorylation/dephosphorylation}
-		\input{reactions_catkin}
+		\input{reactions_pE}
 		\subsection*{RSK phosphorylation/dephosphorylation}
-		\input{reactions_catrp}
+		\input{reactions_pR}
 		\subsection*{MAPK activation}
-		\input{reactions_kin}
+		\input{reactions_pK}
 	\end{footnotesize}
 	
 \end{document}
