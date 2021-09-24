@@ -86,8 +86,6 @@
       <species id="pEKO_OR" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="EKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pEKO_OpR" compartment="unnamed" initialAmount="0" constant="false"/>
-      <species id="ep_FSUB" compartment="unnamed" initialAmount="0" constant="false"/>
-      <species id="rp_VFSUB" compartment="unnamed" initialAmount="0" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="kon_ER" name="kon_ER" value="1"/>
@@ -644,29 +642,6 @@
             <times/>
             <ci> a </ci>
             <ci> kon_ER </ci>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="ep_FSUB">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <plus/>
-            <ci> pE </ci>
-            <ci> pER </ci>
-            <ci> pER_OR </ci>
-            <ci> pEpR_OpR </ci>
-          </apply>
-        </math>
-      </assignmentRule>
-      <assignmentRule variable="rp_VFSUB">
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <apply>
-            <plus/>
-            <ci> pR </ci>
-            <ci> EpR </ci>
-            <ci> pEpR </ci>
-            <ci> EO_EpR </ci>
-            <ci> pEO_pEpR </ci>
           </apply>
         </math>
       </assignmentRule>
