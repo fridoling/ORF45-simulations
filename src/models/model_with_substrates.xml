@@ -5,7 +5,7 @@
       <Version Major="5" Minor="1" Point="0"/>
     </SimBiology>
   </annotation>
-  <model id="model_invitro_incell" name="model_invitro_incell">
+  <model id="attilar" name="attilar">
     <listOfCompartments>
       <compartment id="unnamed" name="unnamed" size="1"/>
     </listOfCompartments>
@@ -42,9 +42,9 @@
       <species id="pK" name="pK" compartment="unnamed" initialAmount="0.1" boundaryCondition="true"/>
       <species id="K" name="K" compartment="unnamed" initialAmount="0"/>
       <species id="EpK" name="EpK" compartment="unnamed" initialAmount="0"/>
-      <species id="EK" name="EK" compartment="unnamed" initialAmount="0"/>
+      <species id="EK" name="EpK" compartment="unnamed" initialAmount="0"/>
       <species id="pEpK" name="pEpK" compartment="unnamed" initialAmount="0"/>
-      <species id="pEK" name="pEK" compartment="unnamed" initialAmount="0"/>
+      <species id="pEK" name="pEpK" compartment="unnamed" initialAmount="0"/>
       <species id="pEP" name="pEP" compartment="unnamed" initialAmount="0"/>
       <species id="EP" name="EP" compartment="unnamed" initialAmount="0"/>
       <species id="P" name="P" compartment="unnamed" initialAmount="0" boundaryCondition="true"/>
@@ -91,7 +91,7 @@
       <species id="pEpRSUBC" name="pEpRSUBC" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="EO_EpRSUBC" name="EO_EpRSUBC" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pEO_pEpRSUBC" name="pEO_pEpRSUBC" compartment="unnamed" initialAmount="0" constant="false"/>
-      <species id="SUBC" name="SUBC" compartment="unnamed" initialAmount="0" boundaryCondition="true" constant="false"/>
+      <species id="SUBC" name="SUBC" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pSUBC" name="pSUBC" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="SUBCtot" name="SUBCtot" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pRSUBF" name="pRSUBF" compartment="unnamed" initialAmount="0" constant="false"/>
@@ -120,7 +120,7 @@
       <species id="pEpRSUBCSUBF" name="pEpRSUBCSUBF" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="EO_EpRSUBCSUBF" name="EO_EpRSUBCSUBF" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pEO_pEpRSUBCSUBF" name="pEO_pEpRSUBCSUBF" compartment="unnamed" initialAmount="0" constant="false"/>
-      <species id="SUBF" name="SUBF" compartment="unnamed" initialAmount="0" boundaryCondition="true" constant="false"/>
+      <species id="SUBF" name="SUBF" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pSUBF" name="pSUBF" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="SUBFtot" name="SUBFtot" compartment="unnamed" initialAmount="0" constant="false"/>
       <species id="pEO_pEpR_OpRSUBF" name="pEO_pEpR_OpRSUBF" compartment="unnamed" initialAmount="0" constant="false"/>
@@ -129,28 +129,28 @@
     <listOfParameters>
       <parameter id="kon_ER" name="kon_ER" value="1"/>
       <parameter id="kon_ER_factor" name="kon_ER_factor" value="1"/>
-      <parameter id="koff_ER" name="koff_ER" value="1" constant="false"/>
-      <parameter id="koff_ER_d" name="koff_ER_d" value="1" constant="false"/>
-      <parameter id="koff_EpR" name="koff_EpR" value="1" constant="false"/>
-      <parameter id="koff_EpR_d" name="koff_EpR_d" value="1" constant="false"/>
-      <parameter id="koff_OR" name="koff_OR" value="1" constant="false"/>
-      <parameter id="koff_OR_d" name="koff_OR_d" value="1" constant="false"/>
-      <parameter id="koff_OpR" name="koff_OpR" value="1" constant="false"/>
-      <parameter id="koff_OpR_d" name="koff_OpR_d" value="1" constant="false"/>
+      <parameter id="koff_ER" name="koff_ER" value="1"/>
+      <parameter id="koff_ER_d" name="koff_ER_d" value="1"/>
+      <parameter id="koff_EpR" name="koff_EpR" value="1"/>
+      <parameter id="koff_EpR_d" name="koff_EpR_d" value="1"/>
+      <parameter id="koff_OR" name="koff_OR" value="1"/>
+      <parameter id="koff_OR_d" name="koff_OR_d" value="1"/>
+      <parameter id="koff_OpR" name="koff_OpR" value="1"/>
+      <parameter id="koff_OpR_d" name="koff_OpR_d" value="1"/>
       <parameter id="kon_OR" name="kon_OR" value="1"/>
       <parameter id="kon_OR_factor" name="kon_OR_factor" value="1"/>
       <parameter id="kon_EO" name="kon_EO" value="1"/>
-      <parameter id="koff_EO" name="koff_EO" value="1" constant="false"/>
-      <parameter id="koff_EO_d" name="koff_EO_d" value="1" constant="false"/>
+      <parameter id="koff_EO" name="koff_EO" value="1"/>
+      <parameter id="koff_EO_d" name="koff_EO_d" value="1"/>
       <parameter id="kon_EO_factor" name="kon_EO_factor" value="1"/>
-      <parameter id="koff_pEO" name="koff_pEO" value="1" constant="false"/>
-      <parameter id="koff_pEO_d" name="koff_pEO_d" value="1" constant="false"/>
-      <parameter id="kon_EO_a" name="kon_EO_a" value="1" constant="false"/>
-      <parameter id="kon_OR_a" name="kon_OR_a" value="1" constant="false"/>
-      <parameter id="kon_ER_a" name="kon_ER_a" value="1" constant="false"/>
-      <parameter id="KD_EO" name="KD_EO" value="1" constant="false"/>
+      <parameter id="koff_pEO" name="koff_pEO" value="1"/>
+      <parameter id="koff_pEO_d" name="koff_pEO_d" value="1"/>
+      <parameter id="kon_EO_a" name="kon_EO_a" value="1"/>
+      <parameter id="kon_OR_a" name="kon_OR_a" value="1"/>
+      <parameter id="kon_ER_a" name="kon_ER_a" value="1"/>
+      <parameter id="KD_EO" name="KD_EO" value="1"/>
       <parameter id="KD_ER" name="KD_ER" value="1"/>
-      <parameter id="KD_EpR" name="KD_EpR" value="1" constant="false"/>
+      <parameter id="KD_EpR" name="KD_EpR" value="1"/>
       <parameter id="KD_OR" name="KD_OR" value="1"/>
       <parameter id="KD_OpR" name="KD_OpR" value="1"/>
       <parameter id="KD_pEO" name="KD_pEO" value="1"/>
@@ -161,15 +161,15 @@
       <parameter id="kp_R" name="kp_R" value="1"/>
       <parameter id="kp_R_on" name="kp_R_on" value="1"/>
       <parameter id="kon_EK" name="kon_EK" value="1"/>
-      <parameter id="koff_EK" name="koff_EK" value="1" constant="false"/>
+      <parameter id="koff_EK" name="koff_EK" value="1"/>
       <parameter id="kp_E" name="kp_E" value="1"/>
       <parameter id="kp_E_on" name="kp_E_on" value="1"/>
       <parameter id="kon_EP" name="kon_EP" value="1"/>
-      <parameter id="koff_EP" name="koff_EP" value="1" constant="false"/>
+      <parameter id="koff_EP" name="koff_EP" value="1"/>
       <parameter id="kdp_E" name="kdp_E" value="1"/>
       <parameter id="kdp_E_on" name="kdp_E_on" value="1"/>
       <parameter id="kon_RP2" name="kon_RP2" value="1"/>
-      <parameter id="koff_RP2" name="koff_RP2" value="1" constant="false"/>
+      <parameter id="koff_RP2" name="koff_RP2" value="1"/>
       <parameter id="kdp_R" name="kdp_R" value="1"/>
       <parameter id="kp_K_bg" name="kp_K_bg" value="1"/>
       <parameter id="kp_K_egf" name="kp_K_egf" value="1"/>
@@ -360,8 +360,8 @@
               <ci> pEPO_OpR </ci>
               <ci> EPO_OpR </ci>
               <ci> pEPO_OR </ci>
-              <ci> pEPO_OpRSUBF </ci>
               <ci> EPO_OpRSUBF </ci>
+              <ci> pEPO_OpRSUBF </ci>
             </apply>
           </apply>
         </math>
@@ -383,11 +383,11 @@
               <ci> ERP2 </ci>
               <ci> pEpRP2 </ci>
               <ci> pEO_pERP2 </ci>
-              <ci> pEpRP2SUBF </ci>
-              <ci> pRP2SUBF </ci>
               <ci> EO_EpRP2SUBF </ci>
-              <ci> EpRP2SUBF </ci>
+              <ci> pRP2SUBF </ci>
               <ci> pEO_pEpRP2SUBF </ci>
+              <ci> EpRP2SUBF </ci>
+              <ci> pEpRP2SUBF </ci>
             </apply>
           </apply>
         </math>
@@ -416,8 +416,10 @@
               <ci> EpKO_OpR </ci>
               <ci> pEKO_OpR </ci>
               <ci> pEKO </ci>
-              <ci> pEpKO_OpRSUBF </ci>
               <ci> EpKO_OpRSUBF </ci>
+              <ci> pEKO_OpRSUBF </ci>
+              <ci> EKO_OpRSUBF </ci>
+              <ci> pEpKO_OpRSUBF </ci>
             </apply>
           </apply>
         </math>
@@ -477,25 +479,25 @@
               <ci> pEKO </ci>
               <ci> pEO_pEpRSUBC </ci>
               <ci> EO_EpRSUBC </ci>
-              <ci> pEO_pEpRSUBCSUBF </ci>
-              <ci> OpRSUBF </ci>
-              <ci> pEO_pEpRSUBF </ci>
-              <ci> EO_OpRSUBF </ci>
-              <ci> pEpKO_OpRSUBF </ci>
-              <ci> pEPO_OpRSUBF </ci>
-              <ci> EpKO_OpRSUBF </ci>
-              <ci> EpR_OpRSUBF </ci>
-              <ci> pEO_pEpR_OpRSUBF </ci>
-              <ci> EO_EpRSUBCSUBF </ci>
-              <ci> pEKO_OpRSUBF </ci>
               <ci> EO_EpRP2SUBF </ci>
-              <ci> EKO_OpRSUBF </ci>
               <ci> EPO_OpRSUBF </ci>
+              <ci> EpKO_OpRSUBF </ci>
+              <ci> pEO_pEpR_OpRSUBF </ci>
+              <ci> pEPO_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBCSUBF </ci>
+              <ci> EpR_OpRSUBF </ci>
+              <ci> pEKO_OpRSUBF </ci>
+              <ci> EKO_OpRSUBF </ci>
+              <ci> EO_OpRSUBF </ci>
+              <ci> pEO_pEpRP2SUBF </ci>
+              <ci> OpRSUBF </ci>
+              <ci> pEpKO_OpRSUBF </ci>
               <ci> EO_EpRSUBF </ci>
-              <ci> EO_EpR_OpRSUBF </ci>
               <ci> pEpR_OpRSUBF </ci>
               <ci> pEO_OpRSUBF </ci>
-              <ci> pEO_pEpRP2SUBF </ci>
+              <ci> EO_EpR_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBF </ci>
+              <ci> EO_EpRSUBCSUBF </ci>
             </apply>
           </apply>
         </math>
@@ -556,39 +558,39 @@
               <ci> EKO_OR </ci>
               <ci> EpKO_OpR </ci>
               <ci> pEKO_OpR </ci>
-              <ci> pRSUBC </ci>
-              <ci> pEO_pEpRSUBC </ci>
-              <ci> EO_EpRSUBC </ci>
               <ci> pEpRSUBC </ci>
               <ci> EpRSUBC </ci>
-              <ci> pEO_pEpRSUBCSUBF </ci>
-              <ci> OpRSUBF </ci>
-              <ci> pEO_pEpRSUBF </ci>
-              <ci> EO_OpRSUBF </ci>
-              <ci> pEpKO_OpRSUBF </ci>
-              <ci> EpRSUBCSUBF </ci>
-              <ci> pEPO_OpRSUBF </ci>
-              <ci> EpKO_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBC </ci>
+              <ci> pRSUBC </ci>
+              <ci> EO_EpRSUBC </ci>
               <ci> pEpRSUBCSUBF </ci>
+              <ci> EO_EpRP2SUBF </ci>
+              <ci> EPO_OpRSUBF </ci>
+              <ci> EpKO_OpRSUBF </ci>
+              <ci> pEO_pEpR_OpRSUBF </ci>
+              <ci> pRSUBCSUBF </ci>
+              <ci> pEPO_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBCSUBF </ci>
               <ci> pRSUBF </ci>
               <ci> EpR_OpRSUBF </ci>
-              <ci> pEpRP2SUBF </ci>
-              <ci> pEO_pEpR_OpRSUBF </ci>
-              <ci> EO_EpRSUBCSUBF </ci>
-              <ci> EpRSUBF </ci>
               <ci> pRP2SUBF </ci>
               <ci> pEKO_OpRSUBF </ci>
-              <ci> EO_EpRP2SUBF </ci>
-              <ci> pEpRSUBF </ci>
-              <ci> pRSUBCSUBF </ci>
               <ci> EKO_OpRSUBF </ci>
-              <ci> EPO_OpRSUBF </ci>
-              <ci> EO_EpRSUBF </ci>
-              <ci> EO_EpR_OpRSUBF </ci>
-              <ci> pEpR_OpRSUBF </ci>
-              <ci> EpRP2SUBF </ci>
-              <ci> pEO_OpRSUBF </ci>
+              <ci> pEpRSUBF </ci>
+              <ci> EO_OpRSUBF </ci>
               <ci> pEO_pEpRP2SUBF </ci>
+              <ci> EpRP2SUBF </ci>
+              <ci> OpRSUBF </ci>
+              <ci> pEpKO_OpRSUBF </ci>
+              <ci> EO_EpRSUBF </ci>
+              <ci> pEpRP2SUBF </ci>
+              <ci> pEpR_OpRSUBF </ci>
+              <ci> pEO_OpRSUBF </ci>
+              <ci> EpRSUBF </ci>
+              <ci> EO_EpR_OpRSUBF </ci>
+              <ci> EpRSUBCSUBF </ci>
+              <ci> pEO_pEpRSUBF </ci>
+              <ci> EO_EpRSUBCSUBF </ci>
             </apply>
           </apply>
         </math>
@@ -620,39 +622,39 @@
             <ci> pEpKO_OpR </ci>
             <ci> EpKO_OpR </ci>
             <ci> pEKO_OpR </ci>
-            <ci> pRSUBC </ci>
-            <ci> pEO_pEpRSUBC </ci>
-            <ci> EO_EpRSUBC </ci>
             <ci> pEpRSUBC </ci>
             <ci> EpRSUBC </ci>
-            <ci> pEO_pEpRSUBCSUBF </ci>
-            <ci> OpRSUBF </ci>
-            <ci> pEO_pEpRSUBF </ci>
-            <ci> EO_OpRSUBF </ci>
-            <ci> pEpKO_OpRSUBF </ci>
-            <ci> EpRSUBCSUBF </ci>
-            <ci> pEPO_OpRSUBF </ci>
-            <ci> EpKO_OpRSUBF </ci>
+            <ci> pEO_pEpRSUBC </ci>
+            <ci> pRSUBC </ci>
+            <ci> EO_EpRSUBC </ci>
             <ci> pEpRSUBCSUBF </ci>
+            <ci> EO_EpRP2SUBF </ci>
+            <ci> EPO_OpRSUBF </ci>
+            <ci> EpKO_OpRSUBF </ci>
+            <ci> pEO_pEpR_OpRSUBF </ci>
+            <ci> pRSUBCSUBF </ci>
+            <ci> pEPO_OpRSUBF </ci>
+            <ci> pEO_pEpRSUBCSUBF </ci>
             <ci> pRSUBF </ci>
             <ci> EpR_OpRSUBF </ci>
-            <ci> pEpRP2SUBF </ci>
-            <ci> pEO_pEpR_OpRSUBF </ci>
-            <ci> EO_EpRSUBCSUBF </ci>
-            <ci> EpRSUBF </ci>
             <ci> pRP2SUBF </ci>
             <ci> pEKO_OpRSUBF </ci>
-            <ci> EO_EpRP2SUBF </ci>
-            <ci> pEpRSUBF </ci>
-            <ci> pRSUBCSUBF </ci>
             <ci> EKO_OpRSUBF </ci>
-            <ci> EPO_OpRSUBF </ci>
-            <ci> EO_EpRSUBF </ci>
-            <ci> EO_EpR_OpRSUBF </ci>
-            <ci> pEpR_OpRSUBF </ci>
-            <ci> EpRP2SUBF </ci>
-            <ci> pEO_OpRSUBF </ci>
+            <ci> pEpRSUBF </ci>
+            <ci> EO_OpRSUBF </ci>
             <ci> pEO_pEpRP2SUBF </ci>
+            <ci> EpRP2SUBF </ci>
+            <ci> OpRSUBF </ci>
+            <ci> pEpKO_OpRSUBF </ci>
+            <ci> EO_EpRSUBF </ci>
+            <ci> pEpRP2SUBF </ci>
+            <ci> pEpR_OpRSUBF </ci>
+            <ci> pEO_OpRSUBF </ci>
+            <ci> EpRSUBF </ci>
+            <ci> EO_EpR_OpRSUBF </ci>
+            <ci> EpRSUBCSUBF </ci>
+            <ci> pEO_pEpRSUBF </ci>
+            <ci> EO_EpRSUBCSUBF </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -688,20 +690,20 @@
             <ci> pEpKO_OR </ci>
             <ci> pEKO_OpR </ci>
             <ci> pEKO </ci>
-            <ci> pEO_pEpRSUBC </ci>
             <ci> pEpRSUBC </ci>
-            <ci> pEO_pEpRSUBCSUBF </ci>
-            <ci> pEO_pEpRSUBF </ci>
-            <ci> pEpKO_OpRSUBF </ci>
-            <ci> pEPO_OpRSUBF </ci>
+            <ci> pEO_pEpRSUBC </ci>
             <ci> pEpRSUBCSUBF </ci>
-            <ci> pEpRP2SUBF </ci>
             <ci> pEO_pEpR_OpRSUBF </ci>
+            <ci> pEPO_OpRSUBF </ci>
+            <ci> pEO_pEpRSUBCSUBF </ci>
             <ci> pEKO_OpRSUBF </ci>
             <ci> pEpRSUBF </ci>
+            <ci> pEO_pEpRP2SUBF </ci>
+            <ci> pEpKO_OpRSUBF </ci>
+            <ci> pEpRP2SUBF </ci>
             <ci> pEpR_OpRSUBF </ci>
             <ci> pEO_OpRSUBF </ci>
-            <ci> pEO_pEpRP2SUBF </ci>
+            <ci> pEO_pEpRSUBF </ci>
           </apply>
         </math>
       </assignmentRule>
@@ -767,34 +769,34 @@
               <ci> EpKO_OpR </ci>
               <ci> pEKO_OpR </ci>
               <ci> pEKO </ci>
-              <ci> pEO_pEpRSUBC </ci>
-              <ci> EO_EpRSUBC </ci>
               <ci> pEpRSUBC </ci>
               <ci> EpRSUBC </ci>
-              <ci> pEO_pEpRSUBCSUBF </ci>
-              <ci> pEO_pEpRSUBF </ci>
-              <ci> EO_OpRSUBF </ci>
-              <ci> pEpKO_OpRSUBF </ci>
-              <ci> EpRSUBCSUBF </ci>
-              <ci> pEPO_OpRSUBF </ci>
-              <ci> EpKO_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBC </ci>
+              <ci> EO_EpRSUBC </ci>
               <ci> pEpRSUBCSUBF </ci>
-              <ci> EpR_OpRSUBF </ci>
-              <ci> pEpRP2SUBF </ci>
-              <ci> pEO_pEpR_OpRSUBF </ci>
-              <ci> EO_EpRSUBCSUBF </ci>
-              <ci> EpRSUBF </ci>
-              <ci> pEKO_OpRSUBF </ci>
               <ci> EO_EpRP2SUBF </ci>
-              <ci> pEpRSUBF </ci>
-              <ci> EKO_OpRSUBF </ci>
               <ci> EPO_OpRSUBF </ci>
-              <ci> EO_EpRSUBF </ci>
-              <ci> EO_EpR_OpRSUBF </ci>
-              <ci> pEpR_OpRSUBF </ci>
-              <ci> EpRP2SUBF </ci>
-              <ci> pEO_OpRSUBF </ci>
+              <ci> EpKO_OpRSUBF </ci>
+              <ci> pEO_pEpR_OpRSUBF </ci>
+              <ci> pEPO_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBCSUBF </ci>
+              <ci> EpR_OpRSUBF </ci>
+              <ci> pEKO_OpRSUBF </ci>
+              <ci> EKO_OpRSUBF </ci>
+              <ci> pEpRSUBF </ci>
+              <ci> EO_OpRSUBF </ci>
               <ci> pEO_pEpRP2SUBF </ci>
+              <ci> EpRP2SUBF </ci>
+              <ci> pEpKO_OpRSUBF </ci>
+              <ci> EO_EpRSUBF </ci>
+              <ci> pEpRP2SUBF </ci>
+              <ci> pEpR_OpRSUBF </ci>
+              <ci> pEO_OpRSUBF </ci>
+              <ci> EpRSUBF </ci>
+              <ci> EO_EpR_OpRSUBF </ci>
+              <ci> EpRSUBCSUBF </ci>
+              <ci> pEO_pEpRSUBF </ci>
+              <ci> EO_EpRSUBCSUBF </ci>
             </apply>
           </apply>
         </math>
@@ -834,11 +836,11 @@
             <apply>
               <plus/>
               <ci> pSUBC </ci>
-              <ci> pRSUBC </ci>
-              <ci> pEO_pEpRSUBC </ci>
-              <ci> EO_EpRSUBC </ci>
               <ci> pEpRSUBC </ci>
               <ci> EpRSUBC </ci>
+              <ci> pEO_pEpRSUBC </ci>
+              <ci> pRSUBC </ci>
+              <ci> EO_EpRSUBC </ci>
             </apply>
           </apply>
         </math>
@@ -851,41 +853,41 @@
             <apply>
               <plus/>
               <ci> pSUBF </ci>
-              <ci> pEO_pEpRSUBCSUBF </ci>
-              <ci> OpRSUBF </ci>
-              <ci> pEO_pEpRSUBF </ci>
-              <ci> EO_OpRSUBF </ci>
-              <ci> pEpKO_OpRSUBF </ci>
-              <ci> EpRSUBCSUBF </ci>
-              <ci> pEPO_OpRSUBF </ci>
-              <ci> EpKO_OpRSUBF </ci>
               <ci> pEpRSUBCSUBF </ci>
+              <ci> EO_EpRP2SUBF </ci>
+              <ci> EPO_OpRSUBF </ci>
+              <ci> EpKO_OpRSUBF </ci>
+              <ci> pEO_pEpR_OpRSUBF </ci>
+              <ci> pRSUBCSUBF </ci>
+              <ci> pEPO_OpRSUBF </ci>
+              <ci> pEO_pEpRSUBCSUBF </ci>
               <ci> pRSUBF </ci>
               <ci> EpR_OpRSUBF </ci>
-              <ci> pEpRP2SUBF </ci>
-              <ci> pEO_pEpR_OpRSUBF </ci>
-              <ci> EO_EpRSUBCSUBF </ci>
-              <ci> EpRSUBF </ci>
               <ci> pRP2SUBF </ci>
               <ci> pEKO_OpRSUBF </ci>
-              <ci> EO_EpRP2SUBF </ci>
-              <ci> pEpRSUBF </ci>
-              <ci> pRSUBCSUBF </ci>
               <ci> EKO_OpRSUBF </ci>
-              <ci> EPO_OpRSUBF </ci>
-              <ci> EO_EpRSUBF </ci>
-              <ci> EO_EpR_OpRSUBF </ci>
-              <ci> pEpR_OpRSUBF </ci>
-              <ci> EpRP2SUBF </ci>
-              <ci> pEO_OpRSUBF </ci>
+              <ci> pEpRSUBF </ci>
+              <ci> EO_OpRSUBF </ci>
               <ci> pEO_pEpRP2SUBF </ci>
+              <ci> EpRP2SUBF </ci>
+              <ci> OpRSUBF </ci>
+              <ci> pEpKO_OpRSUBF </ci>
+              <ci> EO_EpRSUBF </ci>
+              <ci> pEpRP2SUBF </ci>
+              <ci> pEpR_OpRSUBF </ci>
+              <ci> pEO_OpRSUBF </ci>
+              <ci> EpRSUBF </ci>
+              <ci> EO_EpR_OpRSUBF </ci>
+              <ci> EpRSUBCSUBF </ci>
+              <ci> pEO_pEpRSUBF </ci>
+              <ci> EO_EpRSUBCSUBF </ci>
             </apply>
           </apply>
         </math>
       </assignmentRule>
     </listOfRules>
     <listOfReactions>
-      <reaction id="vER" name="vER" fast="false">
+      <reaction id="ver" name="ver" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="R"/>
@@ -913,7 +915,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR" name="vEpR" fast="false">
+      <reaction id="verp" name="verp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pR"/>
@@ -941,7 +943,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER" name="vpER" fast="false">
+      <reaction id="vepr" name="vepr" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="R"/>
@@ -969,7 +971,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR" name="vpEpR" fast="false">
+      <reaction id="veprp" name="veprp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pR"/>
@@ -997,7 +999,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_EO" name="vEO_ER_EO" fast="false">
+      <reaction id="veo_er_eo" name="veo_er_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="R"/>
@@ -1025,7 +1027,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_OR_OR" name="vER_OR_OR" fast="false">
+      <reaction id="ver_or_or" name="ver_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OR"/>
@@ -1053,7 +1055,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_EO" name="vEO_EpR_EO" fast="false">
+      <reaction id="veo_erp_eo" name="veo_erp_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pR"/>
@@ -1081,7 +1083,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_OpR_OpR" name="vEpR_OpR_OpR" fast="false">
+      <reaction id="verp_orp_orp" name="verp_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OpR"/>
@@ -1109,7 +1111,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_pEO" name="vpEO_pER_pEO" fast="false">
+      <reaction id="vepo_epr_epo" name="vepo_epr_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="R"/>
@@ -1137,7 +1139,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_OR_OR" name="vpER_OR_OR" fast="false">
+      <reaction id="vepr_or_or" name="vepr_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OR"/>
@@ -1165,7 +1167,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_OpR" name="vpEpR_OpR_OpR" fast="false">
+      <reaction id="veprp_orp_orp" name="veprp_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OpR"/>
@@ -1193,7 +1195,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_pEO" name="vpEO_pEpR_pEO" fast="false">
+      <reaction id="vepo_eprp_epo" name="vepo_eprp_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pR"/>
@@ -1221,7 +1223,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_OR_EOor" name="vEO_ER_OR_EOor" fast="false">
+      <reaction id="veo_er_or_eoor" name="veo_er_or_eoor" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
         </listOfReactants>
@@ -1247,7 +1249,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ERo_OpR_EOOpR" name="vEO_ERo_OpR_EOOpR" fast="false">
+      <reaction id="veo_ero_orp_eoorp" name="veo_ero_orp_eoorp" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
         </listOfReactants>
@@ -1273,7 +1275,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_OR_pEOor" name="vpEO_pER_OR_pEOor" fast="false">
+      <reaction id="vepo_epr_or_epoor" name="vepo_epr_or_epoor" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
         </listOfReactants>
@@ -1299,7 +1301,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_pEOOpR" name="vpEO_pEpR_OpR_pEOOpR" fast="false">
+      <reaction id="vepo_eprp_orp_epoorp" name="vepo_eprp_orp_epoorp" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
         </listOfReactants>
@@ -1325,7 +1327,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO" name="vEO" fast="false">
+      <reaction id="veo" name="veo" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="O"/>
@@ -1353,7 +1355,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO" name="vpEO" fast="false">
+      <reaction id="vepo" name="vepo" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="O"/>
@@ -1381,7 +1383,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_OR" name="vEO_OR_OR" fast="false">
+      <reaction id="veo_or_or" name="veo_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OR"/>
@@ -1409,7 +1411,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_ER" name="vEO_ER_ER" fast="false">
+      <reaction id="veo_er_er" name="veo_er_er" fast="false">
         <listOfReactants>
           <speciesReference species="ER"/>
           <speciesReference species="O"/>
@@ -1437,7 +1439,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_OpR" name="vEO_OpR_OpR" fast="false">
+      <reaction id="veo_orp_orp" name="veo_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OpR"/>
@@ -1465,7 +1467,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_OR" name="vpEO_OR_OR" fast="false">
+      <reaction id="vepo_or_or" name="vepo_or_or" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OR"/>
@@ -1493,7 +1495,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_EpR" name="vEO_EpR_EpR" fast="false">
+      <reaction id="veo_erp_erp" name="veo_erp_erp" fast="false">
         <listOfReactants>
           <speciesReference species="EpR"/>
           <speciesReference species="O"/>
@@ -1521,7 +1523,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="pEO_pER_pER" name="pEO_pER_pER" fast="false">
+      <reaction id="epo_epr_epr" name="epo_epr_epr" fast="false">
         <listOfReactants>
           <speciesReference species="pER"/>
           <speciesReference species="O"/>
@@ -1549,7 +1551,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_OpR" name="vpEO_OpR_OpR" fast="false">
+      <reaction id="vepo_orp_orp" name="vepo_orp_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="OpR"/>
@@ -1577,7 +1579,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_pEpR" name="vpEO_pEpR_pEpR" fast="false">
+      <reaction id="vepo_eprp_eprp" name="vepo_eprp_eprp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR"/>
           <speciesReference species="O"/>
@@ -1605,7 +1607,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_OR_ERor" name="vEO_ER_OR_ERor" fast="false">
+      <reaction id="veo_er_or_eror" name="veo_er_or_eror" fast="false">
         <listOfReactants>
           <speciesReference species="ER_OR"/>
         </listOfReactants>
@@ -1630,7 +1632,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_OpR_EpROpR" name="vEO_EpR_OpR_EpROpR" fast="false">
+      <reaction id="veo_erp_orp_erporp" name="veo_erp_orp_erporp" fast="false">
         <listOfReactants>
           <speciesReference species="EpR_OpR"/>
         </listOfReactants>
@@ -1655,7 +1657,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_OR_pERor" name="vpEO_pER_OR_pERor" fast="false">
+      <reaction id="vepo_epr_or_epror" name="vepo_epr_or_epror" fast="false">
         <listOfReactants>
           <speciesReference species="pER_OR"/>
         </listOfReactants>
@@ -1680,7 +1682,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_pEpROpR" name="vpEO_pEpR_OpR_pEpROpR" fast="false">
+      <reaction id="vepo_eprp_orp_eprporp" name="vepo_eprp_orp_eprporp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR_OpR"/>
         </listOfReactants>
@@ -1733,7 +1735,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpR" name="vOpR" fast="false">
+      <reaction id="vorp" name="vorp" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pR"/>
@@ -1761,7 +1763,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_EO" name="vEO_OR_EO" fast="false">
+      <reaction id="veo_or_eo" name="veo_or_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="R"/>
@@ -1789,7 +1791,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_OR_ER" name="vER_OR_ER" fast="false">
+      <reaction id="ver_or_er" name="ver_or_er" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="ER"/>
@@ -1817,7 +1819,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_EO" name="vEO_OpR_EO" fast="false">
+      <reaction id="veo_orp_eo" name="veo_orp_eo" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pR"/>
@@ -1845,7 +1847,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_OpR_EpR" name="vEpR_OpR_EpR" fast="false">
+      <reaction id="verp_orp_erp" name="verp_orp_erp" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpR"/>
@@ -1873,7 +1875,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_pEO" name="vpEO_OR_pEO" fast="false">
+      <reaction id="vepo_or_epo" name="vepo_or_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="R"/>
@@ -1901,7 +1903,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_OR_pER" name="vpER_OR_pER" fast="false">
+      <reaction id="vepr_or_epr" name="vepr_or_epr" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pER"/>
@@ -1929,7 +1931,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_pEO" name="vpEO_OpR_pEO" fast="false">
+      <reaction id="vepo_orp_epo" name="vepo_orp_epo" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pR"/>
@@ -1957,7 +1959,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_pEpR" name="vpEpR_OpR_pEpR" fast="false">
+      <reaction id="veprp_orp_eprp" name="veprp_orp_eprp" fast="false">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpR"/>
@@ -1985,7 +1987,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_OR_EOER" name="vEO_ER_OR_EOER" fast="false">
+      <reaction id="veo_er_or_eoer" name="veo_er_or_eoer" fast="false">
         <listOfReactants>
           <speciesReference species="EO_ER"/>
         </listOfReactants>
@@ -2011,7 +2013,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_OpR_EOEpR" name="vEO_EpR_OpR_EOEpR" fast="false">
+      <reaction id="veo_erp_orp_eoerp" name="veo_erp_orp_eoerp" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR"/>
         </listOfReactants>
@@ -2037,7 +2039,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_OR_pEOpER" name="vpEO_pER_OR_pEOpER" fast="false">
+      <reaction id="vepo_epr_or_epoepr" name="vepo_epr_or_epoepr" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pER"/>
         </listOfReactants>
@@ -2063,7 +2065,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_pEOpEpR" name="vpEO_pEpR_OpR_pEOpEpR" fast="false">
+      <reaction id="vepo_eprp_orp_epoeprp" name="vepo_eprp_orp_epoeprp" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR"/>
         </listOfReactants>
@@ -2089,7 +2091,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_pERor" name="vpEpR_OpR_pERor" reversible="false" fast="false">
+      <reaction id="veprp_orp_epror" name="veprp_orp_epror" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pER_OR"/>
         </listOfReactants>
@@ -2108,7 +2110,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_pER" name="vpEpR_pER" reversible="false" fast="false">
+      <reaction id="veprp_epr" name="veprp_epr" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pER"/>
         </listOfReactants>
@@ -2127,7 +2129,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK" name="vEK" fast="false">
+      <reaction id="vekin_inact" name="vekin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="K"/>
@@ -2154,7 +2156,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK" name="vpEK" fast="false">
+      <reaction id="vepkin_inact" name="vepkin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="K"/>
@@ -2181,7 +2183,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vK_act" name="vK_act" fast="false">
+      <reaction id="vkin_act" name="vkin_act" fast="false">
         <listOfReactants>
           <speciesReference species="K"/>
         </listOfReactants>
@@ -2214,7 +2216,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK" name="vEpK" fast="false">
+      <reaction id="vekin" name="vekin" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pK"/>
@@ -2241,7 +2243,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK" name="vpEpK" fast="false">
+      <reaction id="vepkin" name="vepkin" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pK"/>
@@ -2268,7 +2270,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_EK" name="vpE_EK" reversible="false" fast="false">
+      <reaction id="vep_ekin" name="vep_ekin" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
         </listOfReactants>
@@ -2287,7 +2289,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEp" name="vpEp" fast="false">
+      <reaction id="vepp" name="vepp" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="P"/>
@@ -2314,7 +2316,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpp" name="vpEpp" fast="false">
+      <reaction id="veppp" name="veppp" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="P"/>
@@ -2341,7 +2343,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="ve_pEpp" name="ve_pEpp" reversible="false" fast="false">
+      <reaction id="ve_eppp" name="ve_eppp" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
         </listOfReactants>
@@ -2360,7 +2362,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRP2" name="vpRP2" fast="false">
+      <reaction id="vrpPP2" name="vrpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pR"/>
           <speciesReference species="P2"/>
@@ -2387,7 +2389,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vr_pRP2" name="vr_pRP2" reversible="false" fast="false">
+      <reaction id="vr_rpPP2" name="vr_rpPP2" reversible="false" fast="false">
         <listOfReactants>
           <speciesReference species="pRP2"/>
         </listOfReactants>
@@ -2405,7 +2407,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vr_P2" fast="false">
+      <reaction id="vr_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="R"/>
           <speciesReference species="P2"/>
@@ -2432,7 +2434,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_P2" fast="false">
+      <reaction id="ver_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="ER"/>
           <speciesReference species="P2"/>
@@ -2459,7 +2461,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="ve_RP2" fast="false">
+      <reaction id="ve_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="RP2"/>
@@ -2486,7 +2488,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_P2" fast="false">
+      <reaction id="vepr_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pER"/>
           <speciesReference species="P2"/>
@@ -2513,7 +2515,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_RP2" fast="false">
+      <reaction id="vep_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="RP2"/>
@@ -2540,7 +2542,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_P2" fast="false">
+      <reaction id="veo_er_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO_ER"/>
           <speciesReference species="P2"/>
@@ -2567,7 +2569,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_RP2" fast="false">
+      <reaction id="veo_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="RP2"/>
@@ -2594,7 +2596,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vERP2_o" fast="false">
+      <reaction id="verPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="ERP2"/>
           <speciesReference species="O"/>
@@ -2621,7 +2623,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pER_P2" fast="false">
+      <reaction id="vepo_epr_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pER"/>
           <speciesReference species="P2"/>
@@ -2648,7 +2650,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_RP2" fast="false">
+      <reaction id="vepo_rPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="RP2"/>
@@ -2675,7 +2677,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpERP2_o" fast="false">
+      <reaction id="veprPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="pERP2"/>
           <speciesReference species="O"/>
@@ -2702,7 +2704,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_P2" fast="false">
+      <reaction id="verp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="EpR"/>
           <speciesReference species="P2"/>
@@ -2729,7 +2731,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="ve_pRP2" fast="false">
+      <reaction id="ve_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pRP2"/>
@@ -2756,7 +2758,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_P2" fast="false">
+      <reaction id="veprp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR"/>
           <speciesReference species="P2"/>
@@ -2783,7 +2785,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_pRP2" fast="false">
+      <reaction id="vep_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pRP2"/>
@@ -2810,7 +2812,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_P2" fast="false">
+      <reaction id="veo_erp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR"/>
           <speciesReference species="P2"/>
@@ -2837,7 +2839,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRP2" fast="false">
+      <reaction id="veo_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRP2"/>
@@ -2864,7 +2866,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRP2_o" fast="false">
+      <reaction id="verpPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="EpRP2"/>
           <speciesReference species="O"/>
@@ -2891,7 +2893,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_P2" fast="false">
+      <reaction id="vepo_eprp_PP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR"/>
           <speciesReference species="P2"/>
@@ -2918,7 +2920,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pRP2" fast="false">
+      <reaction id="vepo_rpPP2" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pRP2"/>
@@ -2945,7 +2947,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpRP2_o" fast="false">
+      <reaction id="veprpPP2_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRP2"/>
           <speciesReference species="O"/>
@@ -2972,7 +2974,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vER_P2_cat" fast="false">
+      <reaction id="ver_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EpRP2"/>
         </listOfReactants>
@@ -2990,7 +2992,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpER_P2_cat" fast="false">
+      <reaction id="vepr_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRP2"/>
         </listOfReactants>
@@ -3008,7 +3010,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_ER_P2_cat" fast="false">
+      <reaction id="veo_er_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpRP2"/>
         </listOfReactants>
@@ -3026,7 +3028,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_ER_P2_cat" fast="false">
+      <reaction id="vepo_er_PP2_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpRP2"/>
         </listOfReactants>
@@ -3044,7 +3046,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_P" fast="false">
+      <reaction id="veo_PP" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="P"/>
@@ -3071,7 +3073,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEP_o" fast="false">
+      <reaction id="vePP_o" fast="false">
         <listOfReactants>
           <speciesReference species="EP"/>
           <speciesReference species="O"/>
@@ -3098,7 +3100,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_P" fast="false">
+      <reaction id="vepo_PP" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="P"/>
@@ -3125,7 +3127,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEP_o" fast="false">
+      <reaction id="vepPP_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
           <speciesReference species="O"/>
@@ -3152,7 +3154,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_P" fast="false">
+      <reaction id="veo_or_PP" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
           <speciesReference species="P"/>
@@ -3179,7 +3181,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEP_OR" fast="false">
+      <reaction id="vePP_OR" fast="false">
         <listOfReactants>
           <speciesReference species="EP"/>
           <speciesReference species="OR"/>
@@ -3206,7 +3208,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEPO_r" fast="false">
+      <reaction id="veoPP_r" fast="false">
         <listOfReactants>
           <speciesReference species="EPO"/>
           <speciesReference species="R"/>
@@ -3233,7 +3235,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_P" fast="false">
+      <reaction id="vepo_or_PP" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
           <speciesReference species="P"/>
@@ -3260,7 +3262,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEP_OR" fast="false">
+      <reaction id="vepPP_OR" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
           <speciesReference species="OR"/>
@@ -3287,7 +3289,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEPO_r" fast="false">
+      <reaction id="vepoPP_r" fast="false">
         <listOfReactants>
           <speciesReference species="pEPO"/>
           <speciesReference species="R"/>
@@ -3314,7 +3316,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_P" fast="false">
+      <reaction id="veo_orp_PP" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="P"/>
@@ -3341,7 +3343,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEP_OpR" fast="false">
+      <reaction id="vePP_orp" fast="false">
         <listOfReactants>
           <speciesReference species="EP"/>
           <speciesReference species="OpR"/>
@@ -3368,7 +3370,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEPO_pR" fast="false">
+      <reaction id="veoPP_rp" fast="false">
         <listOfReactants>
           <speciesReference species="EPO"/>
           <speciesReference species="pR"/>
@@ -3395,7 +3397,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_P" fast="false">
+      <reaction id="vepo_orp_PP" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="P"/>
@@ -3422,7 +3424,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEP_OpR" fast="false">
+      <reaction id="vepPP_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pEP"/>
           <speciesReference species="OpR"/>
@@ -3449,7 +3451,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEPO_pR" fast="false">
+      <reaction id="vepoPP_rp" fast="false">
         <listOfReactants>
           <speciesReference species="pEPO"/>
           <speciesReference species="pR"/>
@@ -3476,7 +3478,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pK" fast="false">
+      <reaction id="veo_kin" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pK"/>
@@ -3503,7 +3505,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK_O" fast="false">
+      <reaction id="vekin_o" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
           <speciesReference species="O"/>
@@ -3530,7 +3532,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pK" fast="false">
+      <reaction id="vepo_kin" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pK"/>
@@ -3557,7 +3559,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK_O" fast="false">
+      <reaction id="vepkin_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEpK"/>
           <speciesReference species="O"/>
@@ -3584,7 +3586,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_pK" fast="false">
+      <reaction id="veo_or_kin" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
           <speciesReference species="pK"/>
@@ -3611,7 +3613,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK_OR" fast="false">
+      <reaction id="vekin_OR" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
           <speciesReference species="OR"/>
@@ -3638,7 +3640,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpKO_r" fast="false">
+      <reaction id="veokin_r" fast="false">
         <listOfReactants>
           <speciesReference species="EpKO"/>
           <speciesReference species="R"/>
@@ -3665,7 +3667,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_pK" fast="false">
+      <reaction id="vepo_or_kin" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
           <speciesReference species="pK"/>
@@ -3692,7 +3694,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK_OR" fast="false">
+      <reaction id="vepkin_OR" fast="false">
         <listOfReactants>
           <speciesReference species="pEpK"/>
           <speciesReference species="OR"/>
@@ -3719,7 +3721,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpKO_R" fast="false">
+      <reaction id="vepokin_r" fast="false">
         <listOfReactants>
           <speciesReference species="pEpKO"/>
           <speciesReference species="R"/>
@@ -3746,7 +3748,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_pK" fast="false">
+      <reaction id="veo_orp_kin" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="pK"/>
@@ -3773,7 +3775,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpK_OpR" fast="false">
+      <reaction id="vekin_orp" fast="false">
         <listOfReactants>
           <speciesReference species="EpK"/>
           <speciesReference species="OpR"/>
@@ -3800,7 +3802,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpKO_pR" fast="false">
+      <reaction id="veokin_rp" fast="false">
         <listOfReactants>
           <speciesReference species="EpKO"/>
           <speciesReference species="pR"/>
@@ -3827,7 +3829,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_pK" fast="false">
+      <reaction id="vepo_orp_kin" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="pK"/>
@@ -3854,7 +3856,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpK_OpR" fast="false">
+      <reaction id="vepkin_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpK"/>
           <speciesReference species="OpR"/>
@@ -3881,7 +3883,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpKO_pR" fast="false">
+      <reaction id="vepokin_rp" fast="false">
         <listOfReactants>
           <speciesReference species="pEpKO"/>
           <speciesReference species="pR"/>
@@ -3908,7 +3910,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_K" fast="false">
+      <reaction id="veo_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="K"/>
@@ -3935,7 +3937,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK_O" fast="false">
+      <reaction id="vekin_inact_o" fast="false">
         <listOfReactants>
           <speciesReference species="EK"/>
           <speciesReference species="O"/>
@@ -3962,7 +3964,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_K" fast="false">
+      <reaction id="vepo_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="K"/>
@@ -3989,7 +3991,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK_O" fast="false">
+      <reaction id="vepkin_inact_o" fast="false">
         <listOfReactants>
           <speciesReference species="pEK"/>
           <speciesReference species="O"/>
@@ -4016,7 +4018,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OR_K" fast="false">
+      <reaction id="veo_or_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OR"/>
           <speciesReference species="K"/>
@@ -4043,7 +4045,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK_OR" fast="false">
+      <reaction id="vekin_inact_OR" fast="false">
         <listOfReactants>
           <speciesReference species="EK"/>
           <speciesReference species="OR"/>
@@ -4070,7 +4072,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEKO_R" fast="false">
+      <reaction id="veokin_inact_r" fast="false">
         <listOfReactants>
           <speciesReference species="EKO"/>
           <speciesReference species="R"/>
@@ -4097,7 +4099,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OR_K" fast="false">
+      <reaction id="vepo_or_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OR"/>
           <speciesReference species="K"/>
@@ -4124,7 +4126,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK_OR" fast="false">
+      <reaction id="vepkin_inact_OR" fast="false">
         <listOfReactants>
           <speciesReference species="pEK"/>
           <speciesReference species="OR"/>
@@ -4151,7 +4153,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEKO_R" fast="false">
+      <reaction id="vepokin_inact_r" fast="false">
         <listOfReactants>
           <speciesReference species="pEKO"/>
           <speciesReference species="R"/>
@@ -4178,7 +4180,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_K" fast="false">
+      <reaction id="veo_orp_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="K"/>
@@ -4205,7 +4207,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEK_OpR" fast="false">
+      <reaction id="vekin_inact_orp" fast="false">
         <listOfReactants>
           <speciesReference species="EK"/>
           <speciesReference species="OpR"/>
@@ -4232,7 +4234,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEKO_pR" fast="false">
+      <reaction id="veokin_inact_rp" fast="false">
         <listOfReactants>
           <speciesReference species="EKO"/>
           <speciesReference species="pR"/>
@@ -4259,7 +4261,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_K" fast="false">
+      <reaction id="vepo_orp_kin_inact" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="K"/>
@@ -4286,7 +4288,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEK_OpR" fast="false">
+      <reaction id="vepkin_inact_orp" fast="false">
         <listOfReactants>
           <speciesReference species="pEK"/>
           <speciesReference species="OpR"/>
@@ -4313,7 +4315,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEKO_pR" fast="false">
+      <reaction id="vepokin_inact_rp" fast="false">
         <listOfReactants>
           <speciesReference species="pEKO"/>
           <speciesReference species="pR"/>
@@ -4340,7 +4342,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vE_pRSUBC__EpRSUBC">
+      <reaction id="ve_rpSUBC__erpSUBC">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pRSUBC"/>
@@ -4368,7 +4370,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBC_pE__pEpRSUBC">
+      <reaction id="vrpSUBC_ep__eprpSUBC">
         <listOfReactants>
           <speciesReference species="pRSUBC"/>
           <speciesReference species="pE"/>
@@ -4396,7 +4398,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRSUBC__EO_EpRSUBC">
+      <reaction id="veo_rpSUBC__eo_erpSUBC">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRSUBC"/>
@@ -4424,7 +4426,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBC_pEO__pEO_pEpRSUBC">
+      <reaction id="vrpSUBC_epo__epo_eprpSUBC">
         <listOfReactants>
           <speciesReference species="pRSUBC"/>
           <speciesReference species="pEO"/>
@@ -4452,7 +4454,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_EpRSUBC__EO_EpRSUBC">
+      <reaction id="vo_erpSUBC__eo_erpSUBC">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpRSUBC"/>
@@ -4480,7 +4482,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_pEpRSUBC__pEO_pEpRSUBC">
+      <reaction id="vo_eprpSUBC__epo_eprpSUBC">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpRSUBC"/>
@@ -4508,7 +4510,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpR_SUBC" fast="false">
+      <reaction id="vrp_SUBC" fast="false">
         <listOfReactants>
           <speciesReference species="pR"/>
           <speciesReference species="SUBC"/>
@@ -4535,7 +4537,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_SUBC" fast="false">
+      <reaction id="verp_SUBC" fast="false">
         <listOfReactants>
           <speciesReference species="EpR"/>
           <speciesReference species="SUBC"/>
@@ -4562,7 +4564,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_SUBC" fast="false">
+      <reaction id="veprp_SUBC" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR"/>
           <speciesReference species="SUBC"/>
@@ -4589,7 +4591,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_SUBC" fast="false">
+      <reaction id="veo_erp_SUBC" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR"/>
           <speciesReference species="SUBC"/>
@@ -4616,7 +4618,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_SUBC" fast="false">
+      <reaction id="vepo_eprp_SUBC" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR"/>
           <speciesReference species="SUBC"/>
@@ -4643,61 +4645,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpR_pSUBC_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pRSUBC"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pR"/>
-          <speciesReference species="pSUBC"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pRSUBC </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEO_pEpR_pSUBC_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEO_pEpRSUBC"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEO_pEpR"/>
-          <speciesReference species="pSUBC"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEO_pEpRSUBC </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEO_EpR_pSUBC_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EO_EpRSUBC"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EO_EpR"/>
-          <speciesReference species="pSUBC"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EO_EpRSUBC </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEpR_pSUBC_cat" fast="false">
+      <reaction id="veprp_pSUBC_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRSUBC"/>
         </listOfReactants>
@@ -4715,7 +4663,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_pSUBC_cat" fast="false">
+      <reaction id="verp_pSUBC_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EpRSUBC"/>
         </listOfReactants>
@@ -4729,6 +4677,60 @@
               <times/>
               <ci> kp_SUB </ci>
               <ci> EpRSUBC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_eprp_pSUBC_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpRSUBC"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR"/>
+          <speciesReference species="pSUBC"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEO_pEpRSUBC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vrp_pSUBC_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pRSUBC"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pR"/>
+          <speciesReference species="pSUBC"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pRSUBC </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veo_erp_pSUBC_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpRSUBC"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR"/>
+          <speciesReference species="pSUBC"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EO_EpRSUBC </ci>
             </apply>
           </math>
         </kineticLaw>
@@ -4750,7 +4752,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vE_pRSUBF__EpRSUBF">
+      <reaction id="ve_rpSUBF__erpSUBF">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pRSUBF"/>
@@ -4778,7 +4780,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_pE__pEpRSUBF">
+      <reaction id="vrpSUBF_ep__eprpSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="pE"/>
@@ -4806,7 +4808,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRSUBF__EO_EpRSUBF">
+      <reaction id="veo_rpSUBF__eo_erpSUBF">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRSUBF"/>
@@ -4834,7 +4836,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vE_OpRSUBF__EpR_OpRSUBF">
+      <reaction id="ve_orpSUBF__erp_orpSUBF">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OpRSUBF"/>
@@ -4862,7 +4864,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_pE__pEpR_OpRSUBF">
+      <reaction id="vorpSUBF_ep__eprp_orpSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="pE"/>
@@ -4890,7 +4892,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_pEO__pEO_pEpRSUBF">
+      <reaction id="vrpSUBF_epo__epo_eprpSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="pEO"/>
@@ -4918,7 +4920,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vE_OpRSUBF__EO_OpRSUBF">
+      <reaction id="ve_orpSUBF__eo_orpSUBF">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="OpRSUBF"/>
@@ -4946,7 +4948,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_EpRSUBF__EO_EpRSUBF">
+      <reaction id="vo_erpSUBF__eo_erpSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpRSUBF"/>
@@ -4974,7 +4976,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_pE__pEO_OpRSUBF">
+      <reaction id="vorpSUBF_ep__epo_orpSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="pE"/>
@@ -5002,7 +5004,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_pEpRSUBF__pEO_pEpRSUBF">
+      <reaction id="vo_eprpSUBF__epo_eprpSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpRSUBF"/>
@@ -5030,7 +5032,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_pRSUBF__OpRSUBF">
+      <reaction id="vo_rpSUBF__orpSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pRSUBF"/>
@@ -5058,7 +5060,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRSUBF__EO_OpRSUBF">
+      <reaction id="veo_rpSUBF__eo_orpSUBF">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRSUBF"/>
@@ -5086,7 +5088,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_EpRSUBF__EpR_OpRSUBF">
+      <reaction id="vo_erpSUBF__erp_orpSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpRSUBF"/>
@@ -5114,7 +5116,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_pEO__pEO_OpRSUBF">
+      <reaction id="vrpSUBF_epo__epo_orpSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="pEO"/>
@@ -5142,7 +5144,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_pEpRSUBF__pEpR_OpRSUBF">
+      <reaction id="vo_eprpSUBF__eprp_orpSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpRSUBF"/>
@@ -5170,7 +5172,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_P2__pRP2SUBF">
+      <reaction id="vrpSUBF_PP2__rpPP2SUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="P2"/>
@@ -5197,7 +5199,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRSUBF_P2__EpRP2SUBF">
+      <reaction id="verpSUBF_PP2__erpPP2SUBF">
         <listOfReactants>
           <speciesReference species="EpRSUBF"/>
           <speciesReference species="P2"/>
@@ -5224,7 +5226,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vE_pRP2SUBF__EpRP2SUBF">
+      <reaction id="ve_rpPP2SUBF__erpPP2SUBF">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pRP2SUBF"/>
@@ -5251,7 +5253,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpRSUBF_P2__pEpRP2SUBF">
+      <reaction id="veprpSUBF_PP2__eprpPP2SUBF">
         <listOfReactants>
           <speciesReference species="pEpRSUBF"/>
           <speciesReference species="P2"/>
@@ -5278,7 +5280,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_pRP2SUBF__pEpRP2SUBF">
+      <reaction id="vep_rpPP2SUBF__eprpPP2SUBF">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pRP2SUBF"/>
@@ -5305,7 +5307,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpRSUBF_P2__EO_EpRP2SUBF">
+      <reaction id="veo_erpSUBF_PP2__eo_erpPP2SUBF">
         <listOfReactants>
           <speciesReference species="EO_EpRSUBF"/>
           <speciesReference species="P2"/>
@@ -5332,7 +5334,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRP2SUBF__EO_EpRP2SUBF">
+      <reaction id="veo_rpPP2SUBF__eo_erpPP2SUBF">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRP2SUBF"/>
@@ -5359,7 +5361,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_EpRP2SUBF__EO_EpRP2SUBF">
+      <reaction id="vo_erpPP2SUBF__eo_erpPP2SUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpRP2SUBF"/>
@@ -5386,7 +5388,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpRSUBF_P2__pEO_pEpRP2SUBF">
+      <reaction id="vepo_eprpSUBF_PP2__epo_eprpPP2SUBF">
         <listOfReactants>
           <speciesReference species="pEO_pEpRSUBF"/>
           <speciesReference species="P2"/>
@@ -5413,7 +5415,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pRP2SUBF__pEO_pEpRP2SUBF">
+      <reaction id="vepo_rpPP2SUBF__epo_eprpPP2SUBF">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pRP2SUBF"/>
@@ -5440,7 +5442,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_pEpRP2SUBF__pEO_pEpRP2SUBF">
+      <reaction id="vo_eprpPP2SUBF__epo_eprpPP2SUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpRP2SUBF"/>
@@ -5467,7 +5469,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpRSUBF_P__EPO_OpRSUBF">
+      <reaction id="veo_orpSUBF_PP__eo_orpPPSUBF">
         <listOfReactants>
           <speciesReference species="EO_OpRSUBF"/>
           <speciesReference species="P"/>
@@ -5494,7 +5496,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_EP__EPO_OpRSUBF">
+      <reaction id="vorpSUBF_ePP__eo_orpPPSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="EP"/>
@@ -5521,7 +5523,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_EPO__EPO_OpRSUBF">
+      <reaction id="vrpSUBF_eoPP__eo_orpPPSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="EPO"/>
@@ -5548,7 +5550,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpRSUBF_P__pEPO_OpRSUBF">
+      <reaction id="vepo_orpSUBF_PP__epo_orpPPSUBF">
         <listOfReactants>
           <speciesReference species="pEO_OpRSUBF"/>
           <speciesReference species="P"/>
@@ -5575,7 +5577,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_pEP__pEPO_OpRSUBF">
+      <reaction id="vorpSUBF_epPP__epo_orpPPSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="pEP"/>
@@ -5602,7 +5604,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_pEPO__pEPO_OpRSUBF">
+      <reaction id="vrpSUBF_epoPP__epo_orpPPSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="pEPO"/>
@@ -5629,7 +5631,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpRSUBF_pK__EpKO_OpRSUBF">
+      <reaction id="veo_orpSUBF_kin__eo_orpkinSUBF">
         <listOfReactants>
           <speciesReference species="EO_OpRSUBF"/>
           <speciesReference species="pK"/>
@@ -5650,13 +5652,13 @@
               <apply>
                 <times/>
                 <ci> koff_EK </ci>
-                <ci> EpKO_OpRSUBF </ci>
+                <ci> EpKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_EpK__EpKO_OpRSUBF">
+      <reaction id="vorpSUBF_ekin__eo_orpkinSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="EpK"/>
@@ -5677,13 +5679,13 @@
               <apply>
                 <times/>
                 <ci> koff_EO </ci>
-                <ci> EpKO_OpRSUBF </ci>
+                <ci> EpKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_EpKO__EpKO_OpRSUBF">
+      <reaction id="vrpSUBF_eokin__eo_orpkinSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="EpKO"/>
@@ -5704,13 +5706,13 @@
               <apply>
                 <times/>
                 <ci> koff_OpR </ci>
-                <ci> EpKO_OpRSUBF </ci>
+                <ci> EpKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpRSUBF_pK__pEpKO_OpRSUBF">
+      <reaction id="vepo_orpSUBF_kin__epo_orpkinSUBF">
         <listOfReactants>
           <speciesReference species="pEO_OpRSUBF"/>
           <speciesReference species="pK"/>
@@ -5731,13 +5733,13 @@
               <apply>
                 <times/>
                 <ci> koff_EK </ci>
-                <ci> pEpKO_OpRSUBF </ci>
+                <ci> pEpKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_pEpK__pEpKO_OpRSUBF">
+      <reaction id="vorpSUBF_epkin__epo_orpkinSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="pEpK"/>
@@ -5758,13 +5760,13 @@
               <apply>
                 <times/>
                 <ci> koff_pEO </ci>
-                <ci> pEpKO_OpRSUBF </ci>
+                <ci> pEpKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_pEpKO__pEpKO_OpRSUBF">
+      <reaction id="vrpSUBF_epokin__epo_orpkinSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="pEpKO"/>
@@ -5785,13 +5787,13 @@
               <apply>
                 <times/>
                 <ci> koff_OpR </ci>
-                <ci> pEpKO_OpRSUBF </ci>
+                <ci> pEpKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpRSUBF_K__EKO_OpRSUBF">
+      <reaction id="veo_orpSUBF_kin_inact__eo_orpkin_inactSUBF">
         <listOfReactants>
           <speciesReference species="EO_OpRSUBF"/>
           <speciesReference species="K"/>
@@ -5812,13 +5814,13 @@
               <apply>
                 <times/>
                 <ci> koff_EK </ci>
-                <ci> EKO_OpRSUBF </ci>
+                <ci> EKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_EK__EKO_OpRSUBF">
+      <reaction id="vorpSUBF_ekin_inact__eo_orpkin_inactSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="EK"/>
@@ -5839,13 +5841,13 @@
               <apply>
                 <times/>
                 <ci> koff_EO </ci>
-                <ci> EKO_OpRSUBF </ci>
+                <ci> EKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_EKO__EKO_OpRSUBF">
+      <reaction id="vrpSUBF_eokin_inact__eo_orpkin_inactSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="EKO"/>
@@ -5866,13 +5868,13 @@
               <apply>
                 <times/>
                 <ci> koff_OpR </ci>
-                <ci> EKO_OpRSUBF </ci>
+                <ci> EKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpRSUBF_K__pEKO_OpRSUBF">
+      <reaction id="vepo_orpSUBF_kin_inact__epo_orpkin_inactSUBF">
         <listOfReactants>
           <speciesReference species="pEO_OpRSUBF"/>
           <speciesReference species="K"/>
@@ -5893,13 +5895,13 @@
               <apply>
                 <times/>
                 <ci> koff_EK </ci>
-                <ci> pEKO_OpRSUBF </ci>
+                <ci> pEKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpRSUBF_pEK__pEKO_OpRSUBF">
+      <reaction id="vorpSUBF_epkin_inact__epo_orpkin_inactSUBF">
         <listOfReactants>
           <speciesReference species="OpRSUBF"/>
           <speciesReference species="pEK"/>
@@ -5920,13 +5922,13 @@
               <apply>
                 <times/>
                 <ci> koff_pEO </ci>
-                <ci> pEKO_OpRSUBF </ci>
+                <ci> pEKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_pEKO__pEKO_OpRSUBF">
+      <reaction id="vrpSUBF_epokin_inact__epo_orpkin_inactSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="pEKO"/>
@@ -5947,13 +5949,13 @@
               <apply>
                 <times/>
                 <ci> koff_OpR </ci>
-                <ci> pEKO_OpRSUBF </ci>
+                <ci> pEKO_OpR </ci>
               </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vE_pRSUBCSUBF__EpRSUBCSUBF">
+      <reaction id="ve_rpSUBCSUBF__erpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="E"/>
           <speciesReference species="pRSUBCSUBF"/>
@@ -5981,7 +5983,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpE_pRSUBCSUBF__pEpRSUBCSUBF">
+      <reaction id="vep_rpSUBCSUBF__eprpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="pE"/>
           <speciesReference species="pRSUBCSUBF"/>
@@ -6009,7 +6011,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_pRSUBCSUBF__EO_EpRSUBCSUBF">
+      <reaction id="veo_rpSUBCSUBF__eo_erpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="EO"/>
           <speciesReference species="pRSUBCSUBF"/>
@@ -6037,7 +6039,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pRSUBCSUBF__pEO_pEpRSUBCSUBF">
+      <reaction id="vepo_rpSUBCSUBF__epo_eprpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="pEO"/>
           <speciesReference species="pRSUBCSUBF"/>
@@ -6065,7 +6067,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_EpRSUBCSUBF__EO_EpRSUBCSUBF">
+      <reaction id="vo_erpSUBCSUBF__eo_erpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="EpRSUBCSUBF"/>
@@ -6093,7 +6095,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vO_pEpRSUBCSUBF__pEO_pEpRSUBCSUBF">
+      <reaction id="vo_eprpSUBCSUBF__epo_eprpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="O"/>
           <speciesReference species="pEpRSUBCSUBF"/>
@@ -6121,7 +6123,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBF_SUBC__pRSUBCSUBF">
+      <reaction id="vrpSUBF_SUBC__rpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="pRSUBF"/>
           <speciesReference species="SUBC"/>
@@ -6148,7 +6150,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRSUBF_SUBC__EpRSUBCSUBF">
+      <reaction id="verpSUBF_SUBC__erpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="EpRSUBF"/>
           <speciesReference species="SUBC"/>
@@ -6175,7 +6177,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpRSUBF_SUBC__pEpRSUBCSUBF">
+      <reaction id="veprpSUBF_SUBC__eprpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="pEpRSUBF"/>
           <speciesReference species="SUBC"/>
@@ -6202,7 +6204,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpRSUBF_SUBC__EO_EpRSUBCSUBF">
+      <reaction id="veo_erpSUBF_SUBC__eo_erpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="EO_EpRSUBF"/>
           <speciesReference species="SUBC"/>
@@ -6229,7 +6231,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpRSUBF_SUBC__pEO_pEpRSUBCSUBF">
+      <reaction id="vepo_eprpSUBF_SUBC__epo_eprpSUBCSUBF">
         <listOfReactants>
           <speciesReference species="pEO_pEpRSUBF"/>
           <speciesReference species="SUBC"/>
@@ -6256,7 +6258,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpR_SUBF" fast="false">
+      <reaction id="vrp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pR"/>
           <speciesReference species="SUBF"/>
@@ -6283,7 +6285,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_SUBF" fast="false">
+      <reaction id="verp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EpR"/>
           <speciesReference species="SUBF"/>
@@ -6310,7 +6312,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_SUBF" fast="false">
+      <reaction id="veprp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR"/>
           <speciesReference species="SUBF"/>
@@ -6337,7 +6339,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vOpR_SUBF" fast="false">
+      <reaction id="vorp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="OpR"/>
           <speciesReference species="SUBF"/>
@@ -6364,7 +6366,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_SUBF" fast="false">
+      <reaction id="vepo_orp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6391,7 +6393,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_SUBF" fast="false">
+      <reaction id="veo_orp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6418,7 +6420,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_SUBF" fast="false">
+      <reaction id="veo_erp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR"/>
           <speciesReference species="SUBF"/>
@@ -6445,7 +6447,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_SUBF" fast="false">
+      <reaction id="vepo_eprp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR"/>
           <speciesReference species="SUBF"/>
@@ -6472,7 +6474,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpR_OpR_SUBF" fast="false">
+      <reaction id="verp_orp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EpR_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6499,7 +6501,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_SUBF" fast="false">
+      <reaction id="veprp_orp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEpR_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6526,7 +6528,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_OpR_SUBF" fast="false">
+      <reaction id="veo_erp_orp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpR_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6553,7 +6555,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_OpR_SUBF" fast="false">
+      <reaction id="vepo_eprp_orp_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpR_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6580,7 +6582,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRP2_SUBF" fast="false">
+      <reaction id="vrpPP2_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pRP2"/>
           <speciesReference species="SUBF"/>
@@ -6607,7 +6609,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpRP2_SUBF" fast="false">
+      <reaction id="vepo_eprpPP2_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_pEpRP2"/>
           <speciesReference species="SUBF"/>
@@ -6634,7 +6636,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRP2_SUBF" fast="false">
+      <reaction id="verpPP2_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EpRP2"/>
           <speciesReference species="SUBF"/>
@@ -6661,7 +6663,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpRP2_SUBF" fast="false">
+      <reaction id="veo_erpPP2_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpRP2"/>
           <speciesReference species="SUBF"/>
@@ -6688,7 +6690,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpRP2_SUBF" fast="false">
+      <reaction id="veprpPP2_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRP2"/>
           <speciesReference species="SUBF"/>
@@ -6715,7 +6717,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEPO_OpR_SUBF" fast="false">
+      <reaction id="vepo_orpPP_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEPO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6742,7 +6744,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEPO_OpR_SUBF" fast="false">
+      <reaction id="veo_orpPP_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EPO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6769,7 +6771,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEKO_OpR_SUBF" fast="false">
+      <reaction id="veo_orpkin_inact_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EKO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6796,7 +6798,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpKO_OpR_SUBF" fast="false">
+      <reaction id="vepo_orpkin_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEpKO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6823,7 +6825,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpKO_OpR_SUBF" fast="false">
+      <reaction id="veo_orpkin_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EpKO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6850,7 +6852,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEKO_OpR_SUBF" fast="false">
+      <reaction id="vepo_orpkin_inact_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEKO_OpR"/>
           <speciesReference species="SUBF"/>
@@ -6877,88 +6879,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpRSUBC_SUBF" fast="false">
-        <listOfReactants>
-          <speciesReference species="pRSUBC"/>
-          <speciesReference species="SUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pRSUBCSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <minus/>
-              <apply>
-                <times/>
-                <ci> kon_pRSUB </ci>
-                <ci> pRSUBC </ci>
-                <ci> SUBF </ci>
-              </apply>
-              <apply>
-                <times/>
-                <ci> koff_pRSUB </ci>
-                <ci> pRSUBCSUBF </ci>
-              </apply>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEO_pEpRSUBC_SUBF" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEO_pEpRSUBC"/>
-          <speciesReference species="SUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEO_pEpRSUBCSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <minus/>
-              <apply>
-                <times/>
-                <ci> kon_pRSUB </ci>
-                <ci> pEO_pEpRSUBC </ci>
-                <ci> SUBF </ci>
-              </apply>
-              <apply>
-                <times/>
-                <ci> koff_pRSUB </ci>
-                <ci> pEO_pEpRSUBCSUBF </ci>
-              </apply>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEO_EpRSUBC_SUBF" fast="false">
-        <listOfReactants>
-          <speciesReference species="EO_EpRSUBC"/>
-          <speciesReference species="SUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EO_EpRSUBCSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <minus/>
-              <apply>
-                <times/>
-                <ci> kon_pRSUB </ci>
-                <ci> EO_EpRSUBC </ci>
-                <ci> SUBF </ci>
-              </apply>
-              <apply>
-                <times/>
-                <ci> koff_pRSUB </ci>
-                <ci> EO_EpRSUBCSUBF </ci>
-              </apply>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEpRSUBC_SUBF" fast="false">
+      <reaction id="veprpSUBC_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRSUBC"/>
           <speciesReference species="SUBF"/>
@@ -6985,7 +6906,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRSUBC_SUBF" fast="false">
+      <reaction id="verpSUBC_SUBF" fast="false">
         <listOfReactants>
           <speciesReference species="EpRSUBC"/>
           <speciesReference species="SUBF"/>
@@ -7012,151 +6933,88 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpRSUBC_pSUBF_cat" fast="false">
+      <reaction id="vepo_eprpSUBC_SUBF" fast="false">
         <listOfReactants>
-          <speciesReference species="pEO_pEpRSUBCSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
           <speciesReference species="pEO_pEpRSUBC"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEO_pEpRSUBCSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vOpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="OpRSUBF"/>
+          <speciesReference species="SUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="OpR"/>
-          <speciesReference species="pSUBF"/>
+          <speciesReference species="pEO_pEpRSUBCSUBF"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> OpRSUBF </ci>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_pRSUB </ci>
+                <ci> pEO_pEpRSUBC </ci>
+                <ci> SUBF </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pRSUB </ci>
+                <ci> pEO_pEpRSUBCSUBF </ci>
+              </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpR_pSUBF_cat" fast="false">
+      <reaction id="vrpSUBC_SUBF" fast="false">
         <listOfReactants>
-          <speciesReference species="pEO_pEpRSUBF"/>
+          <speciesReference species="pRSUBC"/>
+          <speciesReference species="SUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="pEO_pEpR"/>
-          <speciesReference species="pSUBF"/>
+          <speciesReference species="pRSUBCSUBF"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEO_pEpRSUBF </ci>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_pRSUB </ci>
+                <ci> pRSUBC </ci>
+                <ci> SUBF </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pRSUB </ci>
+                <ci> pRSUBCSUBF </ci>
+              </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_OpR_pSUBF_cat" fast="false">
+      <reaction id="veo_erpSUBC_SUBF" fast="false">
         <listOfReactants>
-          <speciesReference species="EO_OpRSUBF"/>
+          <speciesReference species="EO_EpRSUBC"/>
+          <speciesReference species="SUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="EO_OpR"/>
-          <speciesReference species="pSUBF"/>
+          <speciesReference species="EO_EpRSUBCSUBF"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EO_OpRSUBF </ci>
+              <minus/>
+              <apply>
+                <times/>
+                <ci> kon_pRSUB </ci>
+                <ci> EO_EpRSUBC </ci>
+                <ci> SUBF </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> koff_pRSUB </ci>
+                <ci> EO_EpRSUBCSUBF </ci>
+              </apply>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpKO_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEpKO_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEpKO_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEpKO_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEpRSUBC_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EpRSUBCSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EpRSUBC"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EpRSUBCSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEPO_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEPO_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEPO_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEPO_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEpKO_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EpKO_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EpKO_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EpKO_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEpRSUBC_pSUBF_cat" fast="false">
+      <reaction id="veprpSUBC_pSUBF_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEpRSUBCSUBF"/>
         </listOfReactants>
@@ -7174,151 +7032,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEpR_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EpR_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EpR_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EpR_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEpRP2_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEpRP2SUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEpRP2"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEpRP2SUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEO_pEpR_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEO_pEpR_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEO_pEpR_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEO_pEpR_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEO_EpRSUBC_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EO_EpRSUBCSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EO_EpRSUBC"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EO_EpRSUBCSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpRP2_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pRP2SUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pRP2"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pRP2SUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpEKO_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEKO_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEKO_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEKO_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEO_EpRP2_pSUBF_cat" fast="false">
+      <reaction id="veo_erpPP2_pSUBF_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EO_EpRP2SUBF"/>
         </listOfReactants>
@@ -7336,61 +7050,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pEpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pEpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pEpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vpRSUBC_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="pRSUBCSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="pRSUBC"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> pRSUBCSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEKO_OpR_pSUBF_cat" fast="false">
-        <listOfReactants>
-          <speciesReference species="EKO_OpRSUBF"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="EKO_OpR"/>
-          <speciesReference species="pSUBF"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kp_SUB </ci>
-              <ci> EKO_OpRSUBF </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="vEPO_OpR_pSUBF_cat" fast="false">
+      <reaction id="veo_orpPP_pSUBF_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EPO_OpRSUBF"/>
         </listOfReactants>
@@ -7408,12 +7068,12 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_pSUBF_cat" fast="false">
+      <reaction id="veo_orpkin_pSUBF_cat" fast="false">
         <listOfReactants>
-          <speciesReference species="EO_EpRSUBF"/>
+          <speciesReference species="EpKO_OpRSUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="EO_EpR"/>
+          <speciesReference species="EpKO_OpR"/>
           <speciesReference species="pSUBF"/>
         </listOfProducts>
         <kineticLaw>
@@ -7421,17 +7081,17 @@
             <apply>
               <times/>
               <ci> kp_SUB </ci>
-              <ci> EO_EpRSUBF </ci>
+              <ci> EpKO_OpRSUBF </ci>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEO_EpR_OpR_pSUBF_cat" fast="false">
+      <reaction id="vepo_eprp_orp_pSUBF_cat" fast="false">
         <listOfReactants>
-          <speciesReference species="EO_EpR_OpRSUBF"/>
+          <speciesReference species="pEO_pEpR_OpRSUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="EO_EpR_OpR"/>
+          <speciesReference species="pEO_pEpR_OpR"/>
           <speciesReference species="pSUBF"/>
         </listOfProducts>
         <kineticLaw>
@@ -7439,17 +7099,17 @@
             <apply>
               <times/>
               <ci> kp_SUB </ci>
-              <ci> EO_EpR_OpRSUBF </ci>
+              <ci> pEO_pEpR_OpRSUBF </ci>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEpR_OpR_pSUBF_cat" fast="false">
+      <reaction id="vrpSUBC_pSUBF_cat" fast="false">
         <listOfReactants>
-          <speciesReference species="pEpR_OpRSUBF"/>
+          <speciesReference species="pRSUBCSUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="pEpR_OpR"/>
+          <speciesReference species="pRSUBC"/>
           <speciesReference species="pSUBF"/>
         </listOfProducts>
         <kineticLaw>
@@ -7457,12 +7117,192 @@
             <apply>
               <times/>
               <ci> kp_SUB </ci>
-              <ci> pEpR_OpRSUBF </ci>
+              <ci> pRSUBCSUBF </ci>
             </apply>
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vEpRP2_pSUBF_cat" fast="false">
+      <reaction id="vepo_orpPP_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEPO_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEPO_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEPO_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_eprpSUBC_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpRSUBCSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpRSUBC"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEO_pEpRSUBCSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vrp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="verp_orp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpR_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpR_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EpR_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vrpPP2_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pRP2SUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pRP2"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pRP2SUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_orpkin_inact_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEKO_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEKO_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEKO_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veo_orpkin_inact_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EKO_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EKO_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EKO_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veprp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veo_orp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EO_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_eprpPP2_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpRP2SUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpRP2"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEO_pEpRP2SUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="verpPP2_pSUBF_cat" fast="false">
         <listOfReactants>
           <speciesReference species="EpRP2SUBF"/>
         </listOfReactants>
@@ -7480,7 +7320,97 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_OpR_pSUBF_cat" fast="false">
+      <reaction id="vorp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_orpkin_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpKO_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpKO_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEpKO_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veo_erp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EO_EpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veprpPP2_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpRP2SUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpRP2"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEpRP2SUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veprp_orp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEpR_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEpR_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEpR_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_orp_pSUBF_cat" fast="false">
         <listOfReactants>
           <speciesReference species="pEO_OpRSUBF"/>
         </listOfReactants>
@@ -7498,12 +7428,12 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="vpEO_pEpRP2_pSUBF_cat" fast="false">
+      <reaction id="verp_pSUBF_cat" fast="false">
         <listOfReactants>
-          <speciesReference species="pEO_pEpRP2SUBF"/>
+          <speciesReference species="EpRSUBF"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="pEO_pEpRP2"/>
+          <speciesReference species="EpR"/>
           <speciesReference species="pSUBF"/>
         </listOfProducts>
         <kineticLaw>
@@ -7511,7 +7441,79 @@
             <apply>
               <times/>
               <ci> kp_SUB </ci>
-              <ci> pEO_pEpRP2SUBF </ci>
+              <ci> EpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veo_erp_orp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpR_OpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpR_OpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EO_EpR_OpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="verpSUBC_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EpRSUBCSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EpRSUBC"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EpRSUBCSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="vepo_eprp_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="pEO_pEpRSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="pEO_pEpR"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> pEO_pEpRSUBF </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="veo_erpSUBC_pSUBF_cat" fast="false">
+        <listOfReactants>
+          <speciesReference species="EO_EpRSUBCSUBF"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="EO_EpRSUBC"/>
+          <speciesReference species="pSUBF"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kp_SUB </ci>
+              <ci> EO_EpRSUBCSUBF </ci>
             </apply>
           </math>
         </kineticLaw>

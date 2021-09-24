@@ -4,52 +4,28 @@ import copy
 import numpy as np
 import functions
 
-### functions to modify data
-def set_errors(data, error=0.1, min_error=0.1, absolute=False, ):
-    data_out = copy.deepcopy(data)
-    for net,vars in data.items():
-        for var,times in vars.items():
-            for t,tup in times.items():
-                if absolute:
-                    data_out[net][var][t] = (tup[0], error)
-                else:
-                    data_out[net][var][t] = (tup[0], np.max([error*tup[0],min_error]))
-    return data_out
-
-def subtract_bg(data, bg=0, norm=True, renormalize=True):
-    data_out = copy.deepcopy(data)
-    for net, vars in data.items():
-        for var,times in vars.items():
-            for t,tup in times.items():
-                if renormalize:
-                    data_out[net][var][t] = ((tup[0]-bg)/(1-bg), tup[1])
-                else:
-                    data_out[net][var][t] = (tup[0]-bg, tup[1])
-    return data_out
-
-def order_params(params, m):
-    params_ordered = KeyedList()
-    for p in m.params.keys():
-        val = params.getByKey(p)
-        params_ordered.setByKey(p, val)
-    return params_ordered
-        
-### load basic network
+### load basic networks
 net_basic = IO.from_SBML_file('../models/model_invitro_incell.xml','net_basic')
+net_basic_sub = IO.from_SBML_file('../models/model_with_substrates.xml','net_basic_sub')
 
 nets = OrderedDict()
+nets_sub = OrderedDict()
 exps = OrderedDict()
 data = OrderedDict()
 nets['basic'] = net_basic
+nets_sub['basic'] = net_basic_sub
 
 ### set total amounts constant
 for key in ['Ptot', 'P2tot', 'Etot', 'Rtot', 'Ktot', 'Otot']:
     net_basic.set_var_constant(key, is_constant=True)
     net_basic.set_var_optimizable(key, is_optimizable=False)
 
+for key in ['Ptot', 'P2tot', 'Etot', 'Rtot', 'Ktot', 'Otot', 'SUBFtot', 'SUBCtot']:
+    net_basic_sub.set_var_constant(key, is_constant=True)
+    net_basic_sub.set_var_optimizable(key, is_optimizable=False)
+
 ### IN VITRO EXPERIMENTS
 ### Experiment 1: PERK-RSK
-
 # define net in which phosphorylation is switched on after t = 1000
 nets['PERK_RSK'] = OrderedDict()
 nets['PERK_RSK']['K'] = net_basic.copy(new_id='PERK_RSK')
@@ -96,7 +72,7 @@ data['PERK_RSK'] = {
         }
     }    
 }
-data['PERK_RSK'] = set_errors(data['PERK_RSK'], error=0.05, absolute=False)
+data['PERK_RSK'] = functions.set_errors(data['PERK_RSK'], error=0.05, absolute=False)
 exp = Experiment(name='PERK_RSK', data=data['PERK_RSK'])
 #exp.set_sf_prior([('pRtot')], 'gaussian in log sf', (np.log(38), np.log(2)))
 exp.set_fixed_sf({'pRtot': 38})
@@ -123,7 +99,7 @@ nets['MKK1_ERK_RSK']['K'].set_var_constant('kp_E_on', False)
 nets['MKK1_ERK_RSK']['K'].add_event(id='switch_kp_E_on', trigger='gt(time, 1000)', event_assignments={'kp_E_on': 1})
 nets['MKK1_ERK_RSK']['K'].set_name('K')
 
-# define net with same switch, but without o
+# define net with same switch, but without O
 nets['MKK1_ERK_RSK']['+ORF45'] = nets['MKK1_ERK_RSK']['K'].copy(new_id='MKK1_ERK_RSK_ORF')
 nets['MKK1_ERK_RSK']['+ORF45'].set_var_ic('Otot', 50)
 nets['MKK1_ERK_RSK']['+ORF45'].set_name('+ORF45')
@@ -155,7 +131,7 @@ data['MKK1_ERK_RSK'] = {
         }
     }    
 }
-data['MKK1_ERK_RSK'] = set_errors(data['MKK1_ERK_RSK'], error=0.05, absolute=False)
+data['MKK1_ERK_RSK'] = functions.set_errors(data['MKK1_ERK_RSK'], error=0.05, absolute=False)
 exp = Experiment(name='MKK1_ERK_RSK', data=data['MKK1_ERK_RSK'])
 exp.set_fixed_sf({'pRtot': 4.5})
 #exp.set_sf_prior([('pRtot')], 'gaussian in log sf', (np.log(4.5), np.log(1.1)))
@@ -181,17 +157,17 @@ nets['PERK_PTASE']['K'].set_var_constant('Ptot', False)
 nets['PERK_PTASE']['K'].add_event(id='switch_kdp_E_on', trigger='gt(time, 1000)', event_assignments={'Ptot': 1})
 nets['PERK_PTASE']['K'].set_name('K')
 
-# define net with same switch, but wit RSK = 1
+# define net with same switch, but with RSK = 1
 nets['PERK_PTASE']['+RSK'] = nets['PERK_PTASE']['K'].copy(new_id='PERK_PTASE_RSK')
 nets['PERK_PTASE']['+RSK'].set_var_ic('Rtot', 1)
 nets['PERK_PTASE']['+RSK'].set_name('+RSK')
 
-# define net with same switch, but wit RSK = 1 and o = 1
+# define net with same switch, but with RSK = 1 and o = 1
 nets['PERK_PTASE']['+RSK+ORF(1)'] = nets['PERK_PTASE']['+RSK'].copy(new_id='PERK_PTASE_ORF1')
 nets['PERK_PTASE']['+RSK+ORF(1)'].set_var_ic('Otot', 1)
 nets['PERK_PTASE']['+RSK+ORF(1)'].set_name('+RSK+ORF(1)')
 
-# define net with same switch, but wit RSK = 1 and o = 5
+# define net with same switch, but with RSK = 1 and o = 5
 nets['PERK_PTASE']['+RSK+ORF(5)'] = nets['PERK_PTASE']['+RSK'].copy(new_id='PERK_PTASE_ORF5')
 nets['PERK_PTASE']['+RSK+ORF(5)'].set_var_ic('Otot', 5)
 nets['PERK_PTASE']['+RSK+ORF(5)'].set_name('+RSK+ORF(5)')
@@ -237,8 +213,8 @@ data['PERK_PTASE'] = {
     }
 }
 
-data['PERK_PTASE'] = subtract_bg(data['PERK_PTASE'], bg=0.14)
-data['PERK_PTASE'] = set_errors(data['PERK_PTASE'], error=0.05, min_error=0.1, absolute=False)
+data['PERK_PTASE'] = functions.subtract_bg(data['PERK_PTASE'], bg=0.14)
+data['PERK_PTASE'] = functions.set_errors(data['PERK_PTASE'], error=0.05, min_error=0.1, absolute=False)
 exp = Experiment(name='PERK_PTASE', data=data['PERK_PTASE'])
 exp.set_fixed_sf({'pEtot': 1})
 exps['PERK_PTASE'] = exp
@@ -246,16 +222,17 @@ exps['PERK_PTASE'] = exp
 
 
 #### IN CELL EXPERIMENTS
-
 net_incell = net_basic.copy(new_id='net_incell')
-for key in net_basic.optimizableVars.keys():
-    net_incell.set_var_optimizable(key, is_optimizable=True)
-net_incell.set_var_optimizable('kon_RP2', is_optimizable=True)
-net_incell.set_var_optimizable('KD_RP2', is_optimizable=True)
-net_incell.set_var_optimizable('kdp_R', is_optimizable=True)  
-net_incell.set_var_optimizable('kp_K_bg', is_optimizable=True)
-net_incell.set_var_optimizable('kp_K_egf', is_optimizable=True)
-net_incell.set_var_optimizable('kdp_K', is_optimizable=True)
+net_incell_sub = net_basic_sub.copy(new_id='net_incell_sub')
+for net in [net_incell, net_incell_sub]:
+    for key in net_basic.optimizableVars.keys():
+        net.set_var_optimizable(key, is_optimizable=True)
+    net.set_var_optimizable('kon_RP2', is_optimizable=True)
+    net.set_var_optimizable('KD_RP2', is_optimizable=True)
+    net.set_var_optimizable('kdp_R', is_optimizable=True)  
+    net.set_var_optimizable('kp_K_bg', is_optimizable=True)
+    net.set_var_optimizable('kp_K_egf', is_optimizable=True)
+    net.set_var_optimizable('kdp_K', is_optimizable=True)
 
 nets['INCELL_WT'] = OrderedDict()
 nets['INCELL_WT']['K'] = net_incell.copy(new_id='WT')
@@ -278,6 +255,28 @@ nets['INCELL_WT']['ORF'] = nets['INCELL_WT']['K'].copy(new_id='WT_ORF')
 nets['INCELL_WT']['ORF'].set_var_ic('Otot_factor', 1)
 nets['INCELL_WT']['ORF'].set_var_ic('Otot', 1.0)
 nets['INCELL_WT']['ORF'].set_name('+ORF')
+
+nets_sub['INCELL_WT'] = OrderedDict()
+nets_sub['INCELL_WT']['K'] = net_incell_sub.copy(new_id='WT')
+nets_sub['INCELL_WT']['K'].set_var_ic('Ktot', 1.2)
+nets_sub['INCELL_WT']['K'].set_var_ic('K', 1.2)
+nets_sub['INCELL_WT']['K'].set_var_ic('Etot', 0.7)
+nets_sub['INCELL_WT']['K'].set_var_ic('Rtot', 2.0)
+nets_sub['INCELL_WT']['K'].set_var_ic('Rtot_factor', 1)
+nets_sub['INCELL_WT']['K'].set_var_ic('Otot_factor', 0)
+nets_sub['INCELL_WT']['K'].set_var_ic('Ptot', 1)
+nets_sub['INCELL_WT']['K'].set_var_ic('P2tot', 1)
+nets_sub['INCELL_WT']['K'].set_var_ic('kp_R_on', 1)
+nets_sub['INCELL_WT']['K'].set_var_ic('kp_K_on', 0)
+nets_sub['INCELL_WT']['K'].set_var_constant('kp_K_on', False)
+nets_sub['INCELL_WT']['K'].add_event(id='switch_kin_on', trigger='gt(time, 1000)', event_assignments={'kp_K_on': 1})
+nets_sub['INCELL_WT']['K'].set_name('K')
+
+nets_sub['INCELL_WT']['ORF'] = nets_sub['INCELL_WT']['K'].copy(new_id='WT_ORF')
+nets_sub['INCELL_WT']['ORF'].set_var_ic('Otot_factor', 1)
+nets_sub['INCELL_WT']['ORF'].set_var_ic('Otot', 1.0)
+nets_sub['INCELL_WT']['ORF'].set_name('+ORF')
+
 
 nets['INCELL_RSK_KO'] = OrderedDict()
 nets['INCELL_RSK_KO']['K'] = nets['INCELL_WT']['K'].copy(new_id='RSK_KO')
@@ -354,7 +353,7 @@ data['INCELL_WT'] = {
     }
 }
 
-data['INCELL_WT'] = set_errors(data['INCELL_WT'], error=0.05, min_error=0.01, absolute=True)
+data['INCELL_WT'] = functions.set_errors(data['INCELL_WT'], error=0.05, min_error=0.01, absolute=True)
 exp = Experiment(name='INCELL_WT', data=data['INCELL_WT'])
 exp.set_fixed_sf({'pEtot': 9.14})
 exps['INCELL_WT'] = exp
@@ -396,7 +395,7 @@ data['INCELL_RSK_KO'] = {
     }
 }
 
-data['INCELL_RSK_KO'] = set_errors(data['INCELL_RSK_KO'], error=0.05, min_error=0.01, absolute=True)
+data['INCELL_RSK_KO'] = functions.set_errors(data['INCELL_RSK_KO'], error=0.05, min_error=0.01, absolute=True)
 exp = Experiment(name='INCELL_RSK_KO', data=data['INCELL_RSK_KO'])
 exp.set_fixed_sf({'pEtot': 9.14})
 exps['INCELL_RSK_KO'] = exp
