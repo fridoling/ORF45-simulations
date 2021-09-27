@@ -5,6 +5,7 @@ import numpy as np
 import copy
 import pandas as pd
 import matplotlib.pyplot as plt
+from SloppyCell.ReactionNetworks import *
 
 def set_errors(data, error=0.1, iv=[0,0], iv_error=0, min_error=0.1, absolute=False):
     data_out = copy.deepcopy(data)
@@ -41,7 +42,7 @@ def order_params(params, m):
        params_ordered.setByKey(p, val)
    return params_ordered
  
-def plot_ens(ens, net, out_vars, params_opt = None, step = 10, file = None, axis = None, mode = "std"):
+def plot_ens(ens, net, out_vars, params_opt = None, step = 10, file = None, axis = None, mode = "std", normalize = True):
     ens = ens[::step]
     ens_out = np.empty((len(ens), len(out_vars)))
     for i in range(len(ens)):
@@ -49,32 +50,43 @@ def plot_ens(ens, net, out_vars, params_opt = None, step = 10, file = None, axis
         net.set_var_vals(ens_i)
         ens_out_i = [net.get_var_val(var) for var in out_vars]
         ens_out[i,] = ens_out_i
-    if params_opt is not None:
-        net.set_var_vals(params_opt)
-        vars_opt = [net.get_var_val(var) for var in out_vars]
-    ens_mean = np.log10(np.median(ens_out, axis = 0))
+    ens_mean = np.median(ens_out, axis = 0)
+    if normalize:
+        ens_out = ens_out/ens_mean
+        ens_mean = np.log10(ens_mean)
+        ens_mean_plot = np.zeros_like(ens_mean)
+    else:
+        ens_mean_plot = np.log10(ens_mean)
     if mode=="std":
-        ens_error = np.std(np.log10(ens_out), axis = 0)
+        ens_error = np.std(np.log10(ens_out) - ens_mean, axis = 0)
     elif mode=="quantile":
         ens_error = np.abs(np.quantile(np.log10(ens_out) - ens_mean, [0.05, 0.95], axis = 0))
     else:
         raise ValueError("mode must either be 'std' or 'quantile'")
+    if params_opt is not None:
+        net.set_var_vals(params_opt)
+        vars_opt = np.array([net.get_var_val(var) for var in out_vars])
+        if normalize:
+            vars_opt = np.log10(vars_opt) - ens_mean
+        else:
+            vars_opt = np.log10(vars_opt)
     if axis is None:
         fig, axis = plt.subplots(figsize = (len(out_vars)*0.5,3))
-    axis.scatter(range(len(out_vars)), ens_mean, color = "k", label = "median")
+    if not normalize:
+        axis.scatter(range(len(out_vars)), ens_mean_plot, color = "k", label = "median")
     if params_opt is not None:
-        axis.scatter(range(len(out_vars)), np.log10(vars_opt), color = "r", marker = "x", label = "best")  
-    axis.errorbar(range(len(out_vars)), ens_mean, ens_error, ls = "none", capsize = 3, color = "k")
+        axis.scatter(range(len(out_vars)), vars_opt, color = "r", marker = "x", label = "best")  
+    axis.errorbar(range(len(out_vars)), ens_mean_plot, ens_error, ls = "none", capsize = 3, color = "k")
     axis.set_xticks(range(len(out_vars)));
     axis.set_xticklabels(out_vars, rotation = 45);
     if mode=="std":
-        ymin = np.floor(np.min(ens_mean-ens_error))
-        ymax = np.ceil(np.max(ens_mean+ens_error))
+        ymin = np.floor(np.min(ens_mean_plot-ens_error))
+        ymax = np.ceil(np.max(ens_mean_plot+ens_error))
     else:
-        ymin = np.floor(np.min(ens_mean-ens_error[0,:]))
-        ymax = np.ceil(np.max(ens_mean+ens_error[1,:]))
-    axis.set_yticks(np.arange(ymin,ymax));
-    axis.set_yticklabels([r"$10^{"+str(int(n))+"}$" for n in np.arange(ymin, ymax)]);
+        ymin = np.floor(np.min(ens_mean_plot-ens_error[0,:]))
+        ymax = np.ceil(np.max(ens_mean_plot+ens_error[1,:]))
+    axis.set_yticks(np.arange(ymin,ymax+1));
+    axis.set_yticklabels([r"$10^{"+str(int(n))+"}$" for n in np.arange(ymin, ymax+1)]);
     plt.tight_layout()
     if file is not None:
         plt.savefig(file)

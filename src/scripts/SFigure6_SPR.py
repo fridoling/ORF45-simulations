@@ -316,15 +316,22 @@ m_id = 'RSK_ppERK_ORF_111'
 nets_nested = {m_id: nets}
 exp_ids = [m_id]
 net_SPR = nets[m_id]
-m_SPR, popt_SPR, ens_SPR, cost_SPR = sc.fit_exps(exps,
-                                     nets_nested,
-                                     params_fixed = {},
-                                     params_constrained = {},
-                                     params_free = params_SPR_all,
-                                     exp_ids = exp_ids,
-                                     global_fit=True,
-                                     global_it=10000,
-                                     return_ens=True)
+
+if os.path.exists("../../data/SPR/params_SPR_ens.pickle"):
+    with open("../../data/SPR/params_SPR_ens.pickle", 'r') as f:
+        m_SPR, popt_SPR, ens_SPR, cost_SPR = pickle.load(f)
+else:
+    m_SPR, popt_SPR, ens_SPR, cost_SPR = sc.fit_exps(exps,
+                                         nets_nested,
+                                         params_fixed = {},
+                                         params_constrained = {},
+                                         params_free = params_SPR_all,
+                                         exp_ids = exp_ids,
+                                         global_fit=True,
+                                         global_it=10000,
+                                         return_ens=True)
+    with open("../../data/SPR/params_SPR_ens.pickle", 'w') as f:
+        pickle.dump((m_SPR, popt_SPR, ens_SPR, cost_SPR), f)
 
 out_vars = ["koff_ER", "koff_OR", "koff_pEO", "a", "d"]
 fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
