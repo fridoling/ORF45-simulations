@@ -5,7 +5,7 @@
       <Version Major="5" Minor="1" Point="0"/>
     </SimBiology>
   </annotation>
-  <model id="attilar" name="attilar">
+  <model id="model_with_substrates" name="model_with_substrates">
     <listOfCompartments>
       <compartment id="unnamed" name="unnamed" size="1"/>
     </listOfCompartments>
