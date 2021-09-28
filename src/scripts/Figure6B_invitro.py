@@ -62,7 +62,7 @@ with open("../../data/invitro/table_pars_invitro.pickle", "wb") as f:
     pickle.dump(table_dict_invitro, f)
 
 ## Ensemble analysis:
-out_vars = ["KD_EP", "koff_EO", "koff_EK", "koff_EP", "kp_E", "kp_R", "kdp_E"]
+out_vars = ["KD_EP", "koff_EK", "koff_EP", "kp_E", "kp_R", "kdp_E"]
 fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
 functions.plot_ens(ens, net_basic, out_vars, params_opt = popt, step = 10, file = None, axis = ax, mode = "std")
 ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
