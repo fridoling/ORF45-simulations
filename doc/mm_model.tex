@@ -236,7 +236,7 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	as possible with the simpler SPR and \textit{in vitro} experiments
 	and fitting only the remaining ones to the \textit{in cell} experiments.
 	All parameter values that were used for or obtained from the fitting
-	procedures are listed in \textbf{Supplementary Table S2}.
+	procedures are listed in \textbf{Supplementary Table 3}.
 	
 	Because SPR, \textit{in vitro}, and \textit{in cell} experiments are
 	different in many respects, the parameters were not fixed but they
@@ -297,7 +297,7 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	
 	The model is fit to both the association and the dissociation phase
 	of the experiments. We model the dissociation phase by setting the
-	relevant association rates to zero. All parameters obtained in the fit can be found in Supplementary Table S2.
+	relevant association rates to zero. All parameters obtained in the fit can be found in Supplementary Table 3.
 	
 	\subsubsection{RSK and ppERK}
 	\label{sss:er} In this case RSK is the ligand, and ppERK is the analyte.
@@ -393,7 +393,7 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 		\par\end{center}
 	
 	The optimal parameters resulting from fitting the \emph{in vitro}
-	experiments can be found in Supplementary Table S2. Figure 6B of the
+	experiments can be found in Supplementary Table 3. Figure 6B of the
 	main text shows a visual comparison of data and model simulations.
 	
 	\subsection{\textit{in cell} Experiments}
@@ -421,13 +421,15 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 		\end{tabular}
 		\par\end{center}
 	
-	The optimal parameters resulting from fitting the \emph{in cell} experiments can be found in Supplementary Table S2. Figure 6C of the main text shows a visual comparison of data and model simulations.
+	The optimal parameters resulting from fitting the \emph{in cell} experiments can be found in Supplementary Table 3. Figure 6C of the main text shows a visual comparison of data and model simulations.
 	
-	\subsection{Model Predictions}
+	\subsection{Model Predictions and Model with Substrates}
 	
 	The model predictions were obtained by simulating the model in the
 	same way as in \ref{ss:incell}, using the optimal \emph{in cell}
 	parameter set, except for the indicated changes (see Figure 6D).
+	
+	To simulate the effects of different RSK substrates competing with ORF45 (Figure 7E), we added two species \texttt{SUBC} and \texttt{SUBF} to the model. \texttt{SUBC} competes with ORF45, meaning that it can only bind to \texttt{pR} if \texttt{pR} is not directly bound to \texttt{O}. \texttt{SUBF}, by contrast, can interact with all complexes containing \texttt{pR}. The interactions of both substrates are guided by the parameters \texttt{kon\_pRSUB}, \texttt{koff\_pRSUB}, \texttt{kp\_pRSUB}, and \texttt{kdp\_pRSUB}, which we all set to 1 in our simulations since here we are only interested in qualitative effects. We set the total amounts of the two substrates to a small value (0.01) in order to ensure that the behavior of the rest of the model is not affected (i.e. the substrates are only used as read-outs).
 	
 	\section{Full List of Model Reactions}
 	\label{s:reactions}
