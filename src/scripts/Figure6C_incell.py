@@ -57,10 +57,9 @@ with open("../../data/incell/table_pars_incell.pickle", "wb") as f:
 out_vars = ["KD_RP2", "koff_RP2", "kp_K_bg", "kp_K_egf", "kdp_K", "kdp_R"]
 fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
 functions.plot_ens(ens, net_basic, out_vars, params_opt = popt, step = 10, file = None, axis = ax, mode = "std")
-ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
-ax.set_title("Ensemble fit for incell experiments", loc = "left");
+ax.set_title("in-cell fits - Network Model", loc = "left");
 plt.tight_layout()
-plt.savefig("../../res/ens_fit_incell.eps")
+plt.savefig("../../res/ens_fit_incell.svg")
 
 
    

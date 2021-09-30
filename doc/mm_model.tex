@@ -232,7 +232,7 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	\section{Modeling Strategy}
 	We determine plausible ranges for those parameters which were not
 	directly measured by fitting them to different sets of experimental
-	data. We proceed in a step-wise fashion and constraining as many parameters
+	data. We proceed in a step-wise fashion, constraining as many parameters
 	as possible with the simpler SPR and \textit{in vitro} experiments
 	and fitting only the remaining ones to the \textit{in cell} experiments.
 	All parameter values that were used for or obtained from the fitting
@@ -245,6 +245,8 @@ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
 	constraints are not strict, but that deviations add to the overall
 	cost function used for the optimization (For details see the documentation
 	of SloppyCell).
+	
+	In the main figures we only show the simulations corresponding to the best fit. However, SloppyCell allows for an exhaustive search of the parameter space to generate all parameter sets that are statistically consistent with the data. This is particularly important for so-called ``sloppy'' models in which many parameters are poorly constrained. As we show, however, the parameters in our model are reasonably well-constrained, and the model predictions still hold even if based on an ensemble fit (Supplementary Figure 7).
 	
 	\subsection{SPR Experiments}
 	We use the SPR data to obtain the dissociation rates for the binary

@@ -50,7 +50,11 @@ def plot_ens(ens, net, out_vars, params_opt = None, step = 10, file = None, axis
         net.set_var_vals(ens_i)
         ens_out_i = [net.get_var_val(var) for var in out_vars]
         ens_out[i,] = ens_out_i
-    ens_mean = np.median(ens_out, axis = 0)
+    if params_opt is not None:
+        net.set_var_vals(params_opt)
+        ens_mean = np.array([net.get_var_val(var) for var in out_vars])
+    else:
+        ens_mean = np.median(ens_out, axis = 0)
     if normalize:
         ens_out = ens_out/ens_mean
         ens_mean = np.log10(ens_mean)
@@ -63,19 +67,15 @@ def plot_ens(ens, net, out_vars, params_opt = None, step = 10, file = None, axis
         ens_error = np.abs(np.quantile(np.log10(ens_out) - ens_mean, [0.05, 0.95], axis = 0))
     else:
         raise ValueError("mode must either be 'std' or 'quantile'")
-    if params_opt is not None:
-        net.set_var_vals(params_opt)
-        vars_opt = np.array([net.get_var_val(var) for var in out_vars])
-        if normalize:
-            vars_opt = np.log10(vars_opt) - ens_mean
-        else:
-            vars_opt = np.log10(vars_opt)
     if axis is None:
         fig, axis = plt.subplots(figsize = (len(out_vars)*0.5,3))
-    if not normalize:
-        axis.scatter(range(len(out_vars)), ens_mean_plot, color = "k", label = "median")
-    if params_opt is not None:
-        axis.scatter(range(len(out_vars)), vars_opt, color = "r", marker = "x", label = "best")  
+    if normalize:
+        axis.axhline(y=0, color = "k", ls = "--", lw = 1, alpha = 0.5)
+    else:
+        if params_opt is None:
+            axis.scatter(range(len(out_vars)), ens_mean_plot, color = "k", label = "median")
+        else:
+            axis.scatter(range(len(out_vars)), ens_mean_plot, color = "k", label = "best")
     axis.errorbar(range(len(out_vars)), ens_mean_plot, ens_error, ls = "none", capsize = 3, color = "k")
     axis.set_xticks(range(len(out_vars)));
     axis.set_xticklabels(out_vars, rotation = 45);
@@ -87,6 +87,8 @@ def plot_ens(ens, net, out_vars, params_opt = None, step = 10, file = None, axis
         ymax = np.ceil(np.max(ens_mean_plot+ens_error[1,:]))
     axis.set_yticks(np.arange(ymin,ymax+1));
     axis.set_yticklabels([r"$10^{"+str(int(n))+"}$" for n in np.arange(ymin, ymax+1)]);
+    axis.set_ylabel("deviation from best fit")
+    axis.set_ylim(ymin-0.1, ymax+0.1)
     plt.tight_layout()
     if file is not None:
         plt.savefig(file)
@@ -170,7 +172,7 @@ def fit_exps(exps, nets, params_fixed, params_constrained, params_free, global_f
     m = Model(exp_set, net_set)
 
     for key, val in params_free.items():
-        res = Residuals.PriorInLog(key+'_prior', key, np.log(val), np.log(np.sqrt(10)))
+        res = Residuals.PriorInLog(key+'_prior', key, np.log(val), np.log(np.sqrt(1000)))
         m.AddResidual(res)
 
     for key, val in params_constrained.items():

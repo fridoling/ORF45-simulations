@@ -202,7 +202,7 @@ else:
             res = Residuals.PriorInLog(var+'_prior', var, np.log(val), np.log(np.sqrt(10)))
             models[m_id].AddResidual(res)
         m = models[m_id]
-        params_opt[m_id] = Optimization.fmin_lm_log_params(m, params=params_init[m_id], maxiter=100, disp=True)
+        params_opt[m_id] = Optimization.fmin_lm_log_params(m, params=params_init[m_id], maxiter=100, disp=False)
         sf_opt[m_id] = m.GetScaleFactors()        
     
     
@@ -336,10 +336,9 @@ else:
 out_vars = ["koff_ER", "koff_OR", "koff_pEO", "a", "d"]
 fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
 functions.plot_ens(ens_SPR, net_SPR, out_vars, params_opt = popt_SPR, step = 10, file = None, axis = ax, mode = "std")
-ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
-ax.set_title("Ensemble fit for SPR experiments", loc = "left");
+ax.set_title("SPR fits - Biophysical Model", loc = "left");
 plt.tight_layout()
-plt.savefig("../../res/ens_fit_SPR.eps")
+plt.savefig("../../res/ens_fit_SPR.svg")
 
 
 ## Save parameters for table

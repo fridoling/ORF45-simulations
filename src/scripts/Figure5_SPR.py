@@ -9,11 +9,11 @@ import functions
 
 
 # load model
-net_basic = IO.from_SBML_file('./models/model_SPR.xml','net_basic')
+net_basic = IO.from_SBML_file('../models/model_SPR.xml','net_basic')
 
 # load data
-if not os.path.exists('../data/Figure5_SPR_data.pickle'):
-    df_all = pd.read_excel('../data/SPR/SPR_data1.xlsx', sheet_name=3)
+if not os.path.exists('../../data/Figure5_SPR_data.pickle'):
+    df_all = pd.read_excel('../../data/SPR/SPR_data1.xlsx', sheet_name=3)
     df_all.columns = [
         'time',
         'RSK_ppERK_ORF_012',
@@ -29,10 +29,10 @@ if not os.path.exists('../data/Figure5_SPR_data.pickle'):
     row_select = np.int(df_all.shape[0]/200)
     df_all = df_all.loc[::row_select]
     df_all[df_all<0] = 0
-    with open('../data/Figure5_SPR_data.pickle', 'w') as f:
+    with open('../../data/Figure5_SPR_data.pickle', 'w') as f:
         pickle.dump((df_all, t_iv), f)
 else:
-    with open('../data/Figure5_SPR_data.pickle', 'r') as f:
+    with open('../../data/Figure5_SPR_data.pickle', 'r') as f:
         df_all, t_iv = pickle.load(f)
 
 df = {}
@@ -47,12 +47,12 @@ df['RSK_ppERK_ORF_111'].insert(1, 'RSK_ppERK_ORF_111', df_all['RSK_ppERK_ORF_111
 big_error = 1
 small_error = 0.1
 
-if not os.path.exists('../data/SPR/Figure5_SPR_params.pickle'):    
+if not os.path.exists('../../data/SPR/Figure5_SPR_params.pickle'):    
     KD_ER = 2.5
     KD_OR = 1.2e-3
     KD_pEO = 0.8
 
-    with open('../data/SPR/params_SPR.pickle') as f:
+    with open('../../data/SPR/params_SPR.pickle') as f:
         params_i = pickle.load(f)
         
     dyn_vars = [
@@ -79,7 +79,7 @@ if not os.path.exists('../data/SPR/Figure5_SPR_params.pickle'):
     params_opt = {}
     sf_opt = {}
     
-    with open('../data/SPR/params_SPR_all.pickle', 'rb') as f:
+    with open('../../data/SPR/params_SPR_all.pickle', 'rb') as f:
         params_opt['RSK_ppERK_ORF_111'], sf_opt['RSK_ppERK_ORF_111'] = pickle.load(f)
 
 
@@ -147,10 +147,10 @@ if not os.path.exists('../data/SPR/Figure5_SPR_params.pickle'):
     params_opt[m_id+"_noC"] = Optimization.fmin_lm_log_params(m, params=params_i, maxiter=10, disp=False)
     sf_opt[m_id+"_noC"] = m.GetScaleFactors()
         
-    with open('../data/Figure5_SPR_params.pickle', 'w') as f:
+    with open('../../data/Figure5_SPR_params.pickle', 'w') as f:
         pickle.dump((params_opt, sf_opt, nets, exps), f)
 else:
-    with open('../data/Figure5_SPR_params.pickle', 'r') as f:
+    with open('../../data/Figure5_SPR_params.pickle', 'r') as f:
         params_opt, sf_opt, nets, exps = pickle.load(f)
     data = {}
     for exp_id in ['RSK_ppERK_ORF_111']:
@@ -211,5 +211,5 @@ ax.set_xticklabels(xticks, fontsize=14)
 ax.set_yticks(yticks)
 ax.set_yticklabels(yticks, fontsize=14)
 plt.tight_layout()
-plt.savefig('../res/Figure5_SPR.pdf')
-plt.savefig('../res/Figure5_SPR.eps')
+plt.savefig('../../res/Figure5_SPR.pdf')
+plt.savefig('../../res/Figure5_SPR.eps')

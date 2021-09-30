@@ -28,12 +28,12 @@ if not os.path.exists(params_file):
     ]) + pars_SPR
 
     pars_free = KeyedList([
-        ('kp_R', 1.0),
-        ('kp_E', 1.0),
-        ('kon_EK', 1.0),
-        ('KD_EP', 1.0),
-        ('kon_EP', 1.0),
-        ('kdp_E', 1.0)
+        ('kp_R', 10.486),
+        ('kp_E', 0.522),
+        ('kon_EK', 4.819),
+        ('KD_EP', 4.582),
+        ('kon_EP', 7.567),
+        ('kdp_E', 6.840)
     ])
 
     model, popt, ens, cost = functions.fit_exps(exps,
@@ -65,10 +65,9 @@ with open("../../data/invitro/table_pars_invitro.pickle", "wb") as f:
 out_vars = ["KD_EP", "koff_EK", "koff_EP", "kp_E", "kp_R", "kdp_E"]
 fig, ax = plt.subplots(figsize = (len(out_vars)*1.0, 3))
 functions.plot_ens(ens, net_basic, out_vars, params_opt = popt, step = 10, file = None, axis = ax, mode = "std")
-ax.legend(bbox_to_anchor = (1,0.5), loc = "center left")
-ax.set_title("Ensemble fit for invitro experiments", loc = "left");
+ax.set_title("in vitro fits - Biochemical Model", loc = "left");
 plt.tight_layout()
-plt.savefig("../../res/ens_fit_invitro.eps")
+plt.savefig("../../res/ens_fit_invitro.svg")
 
 
 
