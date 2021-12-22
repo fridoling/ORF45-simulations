@@ -4,7 +4,7 @@ from docx.shared import Pt
 import pickle
 import re
 
-document = Document("../../res/TableS2_template.docx")
+document = Document("../../res/STable3_template.docx")
 table = document.tables[0]
 
 pars = [cell.text for cell in table.columns[-1].cells]
@@ -57,4 +57,4 @@ for i, par in zip(range(len(pars)), pars):
         cells[i].paragraphs[0].runs[0].font.bold = bold
         cells[i].paragraphs[0].alignment = WD_TABLE_ALIGNMENT.CENTER
 
-document.save("../../res/TableS2.docx")
+document.save("../../res/STable3.docx")

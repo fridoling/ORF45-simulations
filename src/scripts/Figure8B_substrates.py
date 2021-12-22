@@ -46,7 +46,7 @@ for net_id in nets_sub["INCELL_WT"].keys():
     ax.set_ylabel("pSUB/total")
     ax.set_ylim([-0.02,0.2])
     plt.tight_layout()    
-    outfile = "../../res/Figure7E_substrates_"+net_id
+    outfile = "../../res/Figure8B_substrates_"+net_id
     for ext in [".pdf", ".eps"]:
         plt.savefig(outfile+ext)
     plt.close("all")
@@ -74,6 +74,6 @@ for net_id in nets["INCELL_WT"].keys():
     ax.set_ylabel("pSUB/total")
     ax.set_ylim([-0.02,0.2])
     plt.tight_layout()    
-    outfile = "../../res/Figure7E_substrates_with_ens_"+net_id
+    outfile = "../../res/Figure8B_substrates_with_ens_"+net_id
     for ext in [".pdf", ".svg"]:
         plt.savefig(outfile+ext)

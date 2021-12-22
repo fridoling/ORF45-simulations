@@ -420,5 +420,5 @@ for m_id in m_ids:
                     s=s+var+' = '+'{:.2g}'.format(val)+'\n'
             ax.text(0.8, 0.9, s, transform=ax.transAxes, verticalalignment='top')
         plt.tight_layout()
-        plt.savefig('../../res/SFigure6_SPR_'+exp_id+'.pdf')
-        plt.savefig('../../res/SFigure6_SPR_'+exp_id+'.eps')
+        plt.savefig('../../res/SFigure5_SPR_'+exp_id+'.pdf')
+        plt.savefig('../../res/SFigure5_SPR_'+exp_id+'.eps')
